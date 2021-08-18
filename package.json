@@ -1,28 +1,17 @@
 {
-  "name": "particles.js",
-  "version": "2.0.0",
-  "description": "A lightweight JavaScript library for creating particles",
-  "homepage": "http://vincentgarreau.com/particles.js",
+  "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/VincentGarreau/particles.js.git"
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
   },
-  "keywords": [
-    "particles",
-    "particle",
-    "canvas"
-  ],
-  "author": "Vincent Garreau",
-  "license": "MIT",
-  "files": [
-    "particles.js",
-    "particles.min.js"
-  ],
-  "bugs": {
-    "url": "https://github.com/VincentGarreau/particles.js/issues"
-  },
-  "homepage": "https://github.com/VincentGarreau/particles.js"
+  "devDependencies": {
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "vite": "^2.3.7"
+  }
 }
