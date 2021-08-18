@@ -74,7 +74,7 @@ function MainTitlePage() {
   </div>
    <div  className='home_slide'>
   <div className='home_slide_img_div'>
-  <img name='home_image'className='home_image' src={`../images/archy${currentImage}.png`}/></div>
+  <img name='home_image'className='home_image' src={`./images/archy${currentImage}.png`}/></div>
    </div>
   </div>)
 }

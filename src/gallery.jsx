@@ -54,11 +54,12 @@ export function GalleryImage(props) {
       vsclass='visible';
       
       
-      u(props.src)
+      u(`./${props.src}`)
     
     }} className='gallery_image_container'>
     
-    <img src={props.src} />
+    <img src={`./${props.src}`} />
+
     
     </div>
 
