@@ -2,6 +2,7 @@ import React, {useEffect}from 'react';
 import ReactDOM from 'react-dom';
 import {CsButton} from './title.jsx'
 import {GalleryContainer} from './gallery.jsx'
+import {gsap} from 'gsap'
 import {ServicePage} from './services.jsx'
 //import {Tilt} from './tilt.jsx'
 import {AboutPage} from './about.jsx'

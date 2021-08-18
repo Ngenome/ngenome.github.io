@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {CsButton} from './title.jsx';
 import axios from 'axios';
+import {gsap } from 'gsap';
 import about from './images/arch2.jpg'
 let visible =false;
  let src= './src/images/archy2.png';
