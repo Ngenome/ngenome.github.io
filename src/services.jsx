@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 //import {BlueButton} from './title
 import {Card, TestimonialCard ,Comment} from './components'
 
-
+import axios from 'axios'
 class Tilt extends React.Component {
   componentDidMount() {
     VanillaTilt.init(this.rootNode, {
@@ -33,6 +33,25 @@ class Tilt extends React.Component {
     max: 30
   };
 export function ServicePage(){
+  const [m,sm]=React.useState([]);
+  React.useEffect(()=>{
+    axios({
+    
+      method: 'get',
+      url: 'https://dummyapi.io/data/v1/user?limit=8',
+      headers: {
+        'app-id': '611d144c8b1a0883a7ddeaa1'
+      }
+    
+    
+    
+    }).then(r => {
+    
+      var rm = r.data.data;
+      sm(rm)
+    
+    })
+  },[])
   return(
     <div className='service_flex'>
     
@@ -74,33 +93,22 @@ export function ServicePage(){
             <div className='testimonials'>
             <h2>Testimonials</h2>
             <div className='testimonial_cards'>
-            <TestimonialCard
-            title = 'Allan Jake'
-            imagelink='images/man.jpg'
-            description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. '
+            {m.map(h=>{
             
-            iglink='https://www.instagram.com'
-            fblink='https://www.facebook.com'
-            whatsapplink='https://www.whatsapp.com'
-                    />
-    <TestimonialCard
-            title = 'Brooke Young'
-            imagelink='images/old-man.jpg'
-            description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. '
-            
-            iglink='https://www.instagram.com'
-            fblink='https://www.facebook.com'
-            whatsapplink='https://www.whatsapp.com'
-            />
-    <TestimonialCard
-            title = 'Celestine Alley'
-            imagelink='images/lady.jpg'
-            description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. .'
-            
-            iglink='https://www.instagram.com'
-            fblink='https://www.facebook.com'
-            whatsapplink='https://www.whatsapp.com'
-            />
+              return(
+              <TestimonialCard
+                          title = {h.firstName}
+                          imagelink={h.picture}
+                          description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. '
+                          
+                          iglink='https://www.instagram.com'
+                          fblink='https://www.facebook.com'
+                          whatsapplink='https://www.whatsapp.com'
+                                  />
+              
+              )
+            })}
+          
             </div>
             
             </div>

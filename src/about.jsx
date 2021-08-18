@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import {BlueButton} from './title'
+import about from './abt.jpg'
 export function SocialIcons(props){
   return(
        <div className='social_icons'>
@@ -24,7 +25,7 @@ export function AboutPage(){
     <div className='about_flex'>
     
      <div className='about_image'>
-        <img src='./abt.jpg'/>
+        <img src={about}/>
        </div>
      <div className='about_desc'>
      <div className='about_desc_top'>
