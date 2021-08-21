@@ -1,0 +1,111 @@
+.top_display {
+  display: flex;
+   
+  width:40vw;
+
+
+   
+}
+.contact-page{
+  background:rgba( 0,0,0,0.6  );
+  height:100vh;
+
+
+}
+.top_display i {
+  margin-right: 5px;
+}
+.contact-title {
+  font-size: 4vw;
+
+  background: linear-gradient(45deg, blue, aqua);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.top_display h3 {
+  background: linear-gradient(45deg, #e09dff, aqua);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-align: left;
+
+}
+
+.rand1 {
+  position: absolute;
+  height: 20vw;
+  z-index: -1;
+  background: linear-gradient(45deg, aqua, blue);
+  width: 20vw;
+  border-radius: 0% 61% 59% 41% / 76% 69% 31% 24%;
+}
+.rand2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 20vw;
+
+  z-index: -1;
+  background: rgb(146, 0, 253);
+  background: linear-gradient(45deg, aqua, purple);
+  width: 20vw;
+  border-radius: 50% 50% 59% 41% / 76% 69% 31% 24%;
+}
+.rand3 {
+  position: absolute;
+  height: 300px;
+  z-index: -1;
+  background: linear-gradient(45deg, aqua, blue);
+  width: 300px;
+  border-radius: 0% 61% 59% 41% / 76% 69% 31% 24%;
+}
+
+@keyframes jog {
+}
+
+.svg1 {
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  height:20vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background:url('./wave2.svg')  ;
+  background-position:center ;
+  aspect-ratio: 900/360;
+}
+ 
+#bg{
+  
+  position: fixed;
+  bottom:0;
+  right:0;
+  z-index: -1;
+  display:none;
+
+
+
+}
+.spans{
+  display:flex;
+  justify-content: center;
+  margin-bottom: 20px ;
+  
+
+}
+.spans span{
+  color:silver;
+  font-size:   2.6vw; 
+  margin-left: 7px;
+  opacity:0;
+
+}
+body{ 
+@media screen and (min-width: 208px){
+ 
+     
+   
+}
+}

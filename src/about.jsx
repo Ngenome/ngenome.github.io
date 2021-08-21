@@ -21,35 +21,34 @@ export function SocialIcons(props){
   
 }
 export function AboutPage(){
-  return(
-    <div className='about_flex'>
-    
-     <div className='about_image'>
-        <img src={about}/>
-       </div>
-     <div className='about_desc'>
-     <div className='about_desc_top'>
-        <h1 className='abt_title'>
-        About us
-        </h1>
-       <div className='hr'></div>
-        <p>
-        Jipas tensail architectural is Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut inventore praesentium, distinctio saepe quidem nobis, qui debitis, suscipit laboriosam quis impedit quisquam autem? Deleniti voluptatum, nihil eos atque. A, fuga?
-        Design & Detailing
-        
-        </p>
-        </div>
-       <div className='about_desc_bottom'>
-     <SocialIcons 
-     
-    inlink='www.linkedin.com'
-    twitterlink='www.twitter.com'
-    fblink='www.facebook.com'
-    whatsapplink='www.whatsapp.com'
-    iglink='www.instagram.com'
-     />
+  return (
+    <div className="about_flex">
+     <div className="about_image">
+       <img src={about} />
      </div>
+     <div className="about_desc">
+        <div className="about_desc_top">
+          <h1 className="abt_title">About us</h1>
+          <div className="hr"></div>
+          <p>
+            We take pride in our wide knowledge in shading systems. Our
+            specialty lies in luxury cottage tents,car shades,event tents, and
+            dome tents.Our clientele ranges from hotels,resorts,organizations,
+            estates and individuals. Our tents are guaranteed cocktail of
+            aesthetic beauty, durability and versatility. Link up with us for
+            more.
+          </p>
         </div>
+        <div className="about_desc_bottom">
+          <SocialIcons
+            inlink="www.linkedin.com"
+            twitterlink="www.twitter.com"
+            fblink="www.facebook.com"
+            whatsapplink="www.whatsapp.com"
+            iglink="www.instagram.com"
+          />
+        </div>
+      </div>
     </div>
-    )
+  );
 }

@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import {CsButton} from './title.jsx'
 import {GalleryContainer} from './gallery.jsx'
 import {gsap} from 'gsap'
-import {ServicePage} from './services.jsx'
-//import {Tilt} from './tilt.jsx'
+import {ServicePage} from './services.jsx' 
+
+ import * as THREE from "three";
+ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import {AboutPage} from './about.jsx'
+import {Contact } from './contact'
 import {BrowserRouter as Router, Switch,Route,Link} from 'react-router-dom'
 import arch1 from './images/arch.jpg'
 import arch2 from './images/arch2.jpg'
@@ -13,6 +16,7 @@ import arch3 from './images/arch3.jpg'
 import arch4 from './images/arch4.jpg'
 import arch5 from './images/arch5.jpg'
 import arch6 from './images/arch6.jpg'
+//import {Importthem} from './3d.js' 
 const archies= [arch1,arch2,arch3,arch4,arch5,arch6];
 let y=1;
 function z(){
@@ -54,37 +58,84 @@ function MainTitlePage() {
   opacity: 0,
   ease: 'bounce',
 })
+ gsap.to('.span',{
+   duration:2,
+   opacity:1,
+   delay:2,
+   stagger:.4,
+
+ })
 
     
   },[]);
   useEffect(() => {
-    gsap.from('.home_image', {
-      duration: 2,
-      opacity: 0,
+    //gsap.from('.home_image', {
+     // duration: 2,
+    //  opacity: 0,
       
-    })
+ //   })
+         
   return()=>{
     clearInterval(xn);
     clearInterval(mn);
   }
   
   }, [currentImage]);
+  useEffect(()=>{
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, 300 / 300, 0.1, 1000);
+scene.add(camera);
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector("#bg"),
+});
+renderer.setSize(300, 300);
+camera.position.setZ(10);
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+function animate() {
+  requestAnimationFrame(animate);
+  cube.rotation.z += 0.01;
+  renderer.render(scene, camera);
+}
+
+animate();
+  },[])
   
-  return(
-  <div className='main-flex'>
-  <div className='title_view'>
-  <h2>Jipas <br/> Tensail Architectural</h2>
-  <div className='btns'>
-  <Link to='/gallery'>
-  <CsButton btnname='See More'/>
-  </Link>
-  </div>
-  </div>
-   <div  className='home_slide'>
-  <div className='home_slide_img_div'>
-  <img name='home_image'className='home_image' src={archies[currentImage]}/></div>
-   </div>
-  </div>)
+  return (
+    <div className="main-flex">
+      <div className="title_view">
+        <div className="show">
+          <h2>
+            Jipas <br /> Tensail Architectural
+          </h2>
+          <div className="spans">
+            <span className="span">Quality tents. </span>  
+            <span className="span">Quality living.</span>
+          </div>
+        </div>
+        <div className="btns">
+          <Link to="/gallery">
+            <CsButton btnname="See More" />
+          </Link>
+        </div>
+      </div>
+      <div className="home_slide">
+        <div className="home_slide_img_div">
+          {
+            // <img
+            //   name="home_image"
+            // className="home_image"
+            //   src={archies[currentImage]}
+            // />
+          }
+        </div>
+        <canvas id="bg"></canvas>
+      </div>
+    </div>
+  );
 }
 function Nav(){
   return(
@@ -106,7 +157,7 @@ function Nav(){
        <a className='nav_anchor' >About</a>
       </li>
       </Link>
-      <Link  className='li' to='/gallery'>
+      <Link  className='li' to='/contact'>
      <li>
       <a className='nav_anchor'>Contact</a>
        </li>
@@ -126,7 +177,10 @@ function Intro(){
   
 }
 function Main(){
+  useEffect(()=>{
+
   
+  },[])
   return(
     <Router>
     <div className='App'>
@@ -139,6 +193,7 @@ function Main(){
     <Route  path='/services' component={ServicePage}/>
         
     <Route path='/gallery' component={GalleryContainer}/>
+    <Route path='/contact' component={Contact}/>
       </Switch>
       </div>
     </Router>

@@ -4,17 +4,16 @@ import ReactDOM from 'react-dom';
 import {Card, TestimonialCard ,Comment} from './components'
 
 import axios from 'axios'
+//import Tilt  from 'react-vanilla-tilt'
 class Tilt extends React.Component {
   componentDidMount() {
     VanillaTilt.init(this.rootNode, {
       max: 25,
-      speed: 400,
-      glare: true,
-      'max-glare': 0.6,
+      speed: 800, 
     })
   }
   render() {
-    return (
+     return (
       <div
         ref={node => (this.rootNode = node)}
         className="tilt-root"
@@ -27,11 +26,12 @@ class Tilt extends React.Component {
   }
 }
 
-  const options = {
-    scale: 1.2,
-    speed: 1000,
-    max: 30
-  };
+  const options ={
+    max: 25,
+      speed: 400,
+      glare: true,
+      'max-glare': 0.1,
+  }
 export function ServicePage(){
   const [m,sm]=React.useState([]);
   React.useEffect(()=>{
@@ -93,7 +93,12 @@ export function ServicePage(){
             <div className='testimonials'>
             <h2>Testimonials</h2>
             <div className='testimonial_cards'>
-            {m.map(h=>{
+ 
+            {
+          
+              
+               m.length===0?<div>loading</div>:
+              m.map(h=>{
             
               return(
               <TestimonialCard
@@ -107,7 +112,9 @@ export function ServicePage(){
                                   />
               
               )
-            })}
+            })
+          }
+ 
           
             </div>
             

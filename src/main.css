@@ -11,10 +11,10 @@
 }
 
 body {
-  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(255, 0, 0, 0.7)), url("./back1.jpg");
+  background: linear-gradient(45deg, blue, red);
   background-size: cover;
   min-height: 100vh;
-  max-width: 100%;
+  max-width: 100vw;
 }
 
 .main-flex {
@@ -22,17 +22,19 @@ body {
   display: grid;
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
   border-top: 2px solid #EE56FF;
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
   background-size: cover;
 }
 
 .main-flex h2 {
   color: white;
-  font-size: 3em;
-  font-family: ubuntu;
+  font-size: 6vw;
+  font-family: Teko;
   margin-bottom: 20px;
 }
 
@@ -42,49 +44,76 @@ body {
 }
 
 .title_btn {
-  height: 40px;
-  width: 200px;
-  border: 2px solid #FA4E4E;
-  -webkit-box-shadow: 2px 2px 10px red, -2px -2px 10px red;
-          box-shadow: 2px 2px 10px red, -2px -2px 10px red;
+  height: 30px;
+  width: 30vw;
+  border: 1px solid aqua;
+  -webkit-box-shadow: 2px 2px 10px blue, -2px -2px 10px blue;
+          box-shadow: 2px 2px 10px blue, -2px -2px 10px blue;
   background: rgba(0, 0, 0, 0.4);
-  color: #FFA3A3;
+  color: aqua;
   border-radius: 10px;
   margin-left: 20px;
 }
 
+@media screen and (max-width: 480px) {
+  .title_btn {
+    height: 20px;
+    font-size: 4px;
+  }
+}
+
+.title_btn::before {
+  content: '';
+  z-index: 7;
+  position: absolute;
+  height: 20px;
+  width: 30vw;
+  background: linear-gradient(45deg, red, blue, green);
+}
+
 .about_flex {
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: "image description";
-  background: rgba(0, 0, 0, 0.2);
-  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0.89)));
+  background: linear-gradient(black, rgba(0, 0, 0, 0.89));
+  width: 100vw;
   height: 100vh;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   background-size: cover;
 }
 
+@media screen and (max-width: 480px) {
+  .about_flex {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .about_image {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: image;
-  background-color: red;
-  height: 90vh;
-  width: 100%;
+  height: 100vh;
+  width: 50vw;
+}
+
+@media screen and (max-width: 480px) {
+  .about_image {
+    height: 50vh;
+    width: 100vw;
+  }
 }
 
 .about_image img {
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .about_desc {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: description;
+  width: 50vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,30 +126,49 @@ body {
           justify-content: space-between;
 }
 
+@media screen and (max-width: 480px) {
+  .about_desc {
+    width: 100vw;
+    height: 50vh;
+  }
+}
+
 .abt_title {
   color: white;
   margin-left: 30%;
-  font-size: 40px;
+  font-size: 5vw;
   font-family: Teko;
 }
 
 .about_desc p {
   color: #B8B8B8;
   font-family: Poppins;
-  font-size: 26px;
+  font-size: 13px;
+}
+
+@media screen and (min-width: 768px) {
+  .about_desc p {
+    font-size: 25px;
+  }
 }
 
 .anchor_social {
   color: white;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 5vw;
 }
 
 .fab {
   color: white;
-  font-size: 1em;
+  font-size: 30px;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
   margin-left: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+  .fab {
+    font-size: 20px;
+  }
 }
 
 .fa-instagram {
@@ -129,32 +177,12 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.fa-facebook {
-  color: #50B0FF;
-}
-
-.fa-whatsapp {
-  color: lime;
-}
-
-.fa-mail {
-  color: #50B0FF;
-}
-
-.fa-linkedin {
-  color: blue;
-}
-
-.fa-twitter {
-  color: #4FB0FF;
-}
-
 .hr {
   background: linear-gradient(45deg, red, blue);
-  height: 7px;
-  width: 80%;
+  height: 3px;
+  width: 90%;
   margin-left: 7%;
-  border-radius: 1px;
+  border-radius: 4px;
 }
 
 .social_icons {
@@ -164,7 +192,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .nav {
@@ -176,7 +204,7 @@ body {
           justify-content: space-between;
   width: 100%;
   height: 5vh;
-  background: rgba(25, 25, 25, 0.4);
+  background: rgba(0, 0, 0, 0.9);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
 }
@@ -191,10 +219,11 @@ body {
           flex-direction: row;
   list-style: none;
   text-decoration: none;
+  max-width: 80vw;
 }
 
 .li {
-  margin-right: 2em;
+  margin-right: 2vw;
   text-decoration: none;
   opacity: 0.7;
 }
@@ -205,18 +234,27 @@ body {
 
 .nav h2 {
   color: white;
-  font-size: 1.6em;
+  font-size: 5vw;
+}
+
+@media screen and (max-width: 480px) {
+  .nav h2 {
+    font-size: 4vw;
+  }
 }
 
 .nav_anchor {
   text-decoration: none;
   color: #F4DFFF;
   font-family: ubuntu;
-  font-size: 1.5em;
+  font-size: 3vw;
 }
 
 .fab:hover {
   margin-bottom: 13px;
+  color: white;
+  -webkit-transform: translateY(10%);
+          transform: translateY(10%);
 }
 
 .card {
@@ -229,6 +267,10 @@ body {
   -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
   border-radius: 25px;
+}
+
+.card::after {
+  border-radius: 22px;
 }
 
 .card_title {
@@ -284,6 +326,7 @@ body {
   display: grid;
       grid-template-areas: "top" "bottom" "comments";
   width: 100%;
+  overflow-x: scroll;
   border-radius: 12px;
   height: 100vh;
 }
@@ -301,7 +344,7 @@ body {
   border-radius: 25px;
 }
 
-.tcard::hover {
+.tcard:hover {
   opacity: 1;
 }
 
@@ -569,10 +612,6 @@ body {
   opacity: 1;
 }
 
-.tilt-root {
-  border-radius: 24px;
-}
-
 .gallery_image_container img {
   height: 100%;
   width: 100%;
@@ -622,7 +661,7 @@ body {
 .x i {
   position: relative;
   left: 400px;
-  font-size: 50px;
+  font-size: 3vw;
   color: red;
 }
 
