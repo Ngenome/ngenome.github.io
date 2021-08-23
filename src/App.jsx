@@ -53,19 +53,42 @@ function MainTitlePage() {
   var xn = setInterval(z, 3000);
   var mn = setInterval(setImg, 5600);
   useEffect(()=>{
-  gsap.from('.title_view', {
+  gsap.from('.show', {
   duration: 2,
   opacity: 0,
   ease: 'bounce',
 })
+gsap.from('.title_btn',{
+  opacity:0,
+  duration:2,
+  delay:4,
+})
+gsap.from('.jp',{
+
+  opacity:0,
+  duration:1,
+  delay:0,
+  stagger:1,
+})
  gsap.to('.span',{
    duration:2,
    opacity:1,
-   delay:2,
+   
+   delay:3 ,
    stagger:.4,
 
- })
 
+ })
+gsap.from('.span',{
+  //x:-4.9,
+  y:-8,
+  delay:3,
+  ease:'bounce',
+  duration:1,
+  stagger:.5,
+
+
+})
     
   },[]);
   useEffect(() => {
@@ -109,11 +132,13 @@ animate();
       <div className="title_view">
         <div className="show">
           <h2>
-            Jipas <br /> Tensail Architectural
+            <span className="jp">Jipas</span> <br />{" "}
+            <span className="jp">Tensail</span><br/>
+            <span className="jp"> Architectural</span>
           </h2>
           <div className="spans">
-            <span className="span">Quality tents. </span>  
-            <span className="span">Quality living.</span>
+            <span className="span span1">Quality tents. </span>
+            <span className="span span2">Quality living.</span>
           </div>
         </div>
         <div className="btns">
@@ -124,13 +149,13 @@ animate();
       </div>
       <div className="home_slide">
         <div className="home_slide_img_div">
-          {
-            // <img
-            //   name="home_image"
-            // className="home_image"
-            //   src={archies[currentImage]}
-            // />
-          }
+          
+             <img style={{display:'none'}}
+             name="home_image"
+            className="home_image"
+               src={archies[currentImage]}
+            />
+          
         </div>
         <canvas id="bg"></canvas>
       </div>

@@ -28,18 +28,40 @@ const Display=(props)=>{
 }
 
 export const Contact=()=>{
-    return(
-
-        <div className='contact-page'>
-        <h1 className='contact-title'>If you want to reach us </h1> 
+    return (
+      <div className="contact-page">
+        <h1 className="contact-title">If you want to reach us </h1>
         <div>
-       <Display fm='fab fa-whatsapp' desc='Whatsapp'/>
-       <Display fm='fab fa-facebook' desc='Facebook'/>
-       <Display fm='fas fa-envelope' desc='Mail'/>
-       <Display fm='fab fa-twitter' desc='Twitter'/>
-       <Display fm='fas fa-phone' desc='Call us'/>
-
+          <form action="" className="contact-form">
+            <div className="wrap"> 
+            <label htmlFor="name" id='name-label'>Enter your Name</label>
+            <input
+            required
+              type="text"
+              placeholder="Enter your full name here"
+              id="name"
+            />
+</div>
+ <div className="wrap"> 
+            <label htmlFor="email" id='mail-label'>Email</label>
+            <input
+            required type="text" placeholder="Enter your email  here" id="mailin" />
+            </div>
+             <div className="wrap"> 
+            <label htmlFor="url" id='web-label'>Website</label>
+            <input
+              type="url"
+             
+              placeholder="Enter your website url here"
+              id="webin"
+            />
+            </div>
+             <div className="wrap"> 
+            <label htmlFor="message" id='message-label'>Message</label>
+            <textarea name="message" id="mess-textarea" cols="30" rows="10"/>
+            </div>
+          </form>
         </div>
-        </div>
-    )
+      </div>
+    );
 }

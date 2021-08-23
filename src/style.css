@@ -74,6 +74,10 @@
   aspect-ratio: 900/360;
 }
 
+.show h2 span {
+  text-transform: uppercase;
+}
+
 #bg {
   position: fixed;
   bottom: 0;
@@ -86,16 +90,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 20px;
 }
 
 .spans span {
   color: silver;
-  font-size: 2.6vw;
-  margin-left: 7px;
+  font-size: 20px;
   opacity: 0;
 }
 /*# sourceMappingURL=style.css.map */

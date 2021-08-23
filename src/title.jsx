@@ -8,12 +8,14 @@ export function MainTitlePage(){
   </div>
    <div></div>
   </div>
-}
+} 
 export function CsButton(props){
   return(
+    <div className="btn_wrap"> 
     <button className='title_btn'>
     {props.btnname}
     </button>
+    </div>
     )
 }
 export function BlueButton(props) {
