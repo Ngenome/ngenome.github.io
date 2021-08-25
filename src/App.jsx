@@ -10,51 +10,39 @@ import {ServicePage} from './services.jsx'
 import {AboutPage} from './about.jsx'
 import {Contact } from './contact'
 import {BrowserRouter as Router, Switch,Route,Link} from 'react-router-dom'
-import arch1 from './images/arch.jpg'
-import arch2 from './images/arch2.jpg'
-import arch3 from './images/arch3.jpg'
-import arch4 from './images/arch4.jpg'
-import arch5 from './images/arch5.jpg'
-import arch6 from './images/arch6.jpg'
+import arch1 from './images/p01.jpg'
+import arch2 from './images/p02.jpg'
+import arch3 from './images/p03.jpg'
+import arch4 from './images/p01.jpg'
+import arch5 from './images/p02.jpg'
+import arch6 from './images/p03.jpg'
 //import {Importthem} from './3d.js' 
 const archies= [arch1,arch2,arch3,arch4,arch5,arch6];
+const archquotes=['']
 let y=1;
-function z(){
-// for (var i=0;i<6;i++){
-//   alert(i)
-// }
-if (y<5){
-  y=y+1;
+var i = document.querySelector('.home_image');
+function  z (){
+    if(i!=null) {
+  //alert('yes')
+   document.home_image.src=archies[y]
+        if (y < 5) {
+          y = y + 1;
+        
+        }
+        else {
+          y = 1;
+        }
+    }
   
 }
-else{
-  y=1;
-}
-
-
-  
-}
- let checkWidth;
+setInterval(z,5200 );
+let checkWidth;
 function MainTitlePage() {
     const [device,setDevice]=React.useState('desktop');
   const [currentImage,setCurrentImage]=React.useState(y);
   const [count, setCount]=React.useState(1)
-  function setImg() {
   
-    setCurrentImage(y);
-  
-    // if (count >5){
-    //   setCount(1);
-    // }
-    // else{
-    // setCount(count+1);
-    // }
-  
-  
-  }
-
-  var xn = setInterval(z, 3000);
-  var mn = setInterval(setImg, 5600);
+   
   useEffect(()=>{
   gsap.from('.show', {
   duration: 2,
@@ -92,21 +80,25 @@ gsap.from('.span',{
 
 
 })
-    
+  
   },[]);
+  
+
   useEffect(() => {
-    //gsap.from('.home_image', {
-     // duration: 2,
-    //  opacity: 0,
+
+    gsap.from('.home_image', {
+      duration: 1,
+    opacity: 0,
       
- //   })
+   })
          
   return()=>{
-    clearInterval(xn);
-    clearInterval(mn);
+   // clearInterval(xn);
+    //clearInterval(mn);
   }
   
-  }, [currentImage]); 
+  }, []); 
+
   const[cw, sw] = React.useState(480);
     const wWidth=window.innerWidth;
     const wHeight= window.innerHeight;
@@ -132,29 +124,6 @@ if (wWidth>480 && wWidth<768){
 
   }
    
-  useEffect(()=>{
-
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, 300 / 300, 0.1, 1000);
-scene.add(camera);
-const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector("#bg"),
-});
-renderer.setSize(300, 300);
-camera.position.setZ(10);
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
-function animate() {
-  requestAnimationFrame(animate);
-  cube.rotation.z += 0.01;
-  renderer.render(scene, camera);
-}
-
-animate();
-  },[])
-  
   return (
     <div className="main-flex">
       <div className="title_view">
@@ -178,14 +147,14 @@ animate();
       <div className="home_slide">
         <div className="home_slide_img_div">
           
-             <img style={{display:'none'}}
+             <img
              name="home_image"
             className="home_image"
-               src={archies[currentImage]}
+               src={archies[1]}
             />
           
         </div>
-        <canvas id="bg"></canvas>
+
       </div>
     </div>
   );

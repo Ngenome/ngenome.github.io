@@ -556,14 +556,17 @@ body{
 
 }
 .home_slide_img_div{
-  height: 80vh;
+  height: 100%;
   width: 100%;
+  @media screen and (max-width){
+  }
   
 }
 .home_slide_img_div img{
   height:100%;
   width:100%;
-  object-fit: contain;
+  object-fit: cover;
+
   
 }
 .gallery_container{

@@ -1,29 +1,20 @@
 .wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .wrap label {
   color: aqua;
   font-family: poppins;
 }
-
 .wrap input {
   height: 44px;
   border-radius: 10px;
 }
-
 .wrap input, .wrap textarea {
   color: #1efc30;
   border: 1px solid #497979;
   background: rgba(6, 3, 34, 0.8);
 }
-
 .wrap textarea {
   border-radius: 20px;
 }
@@ -36,8 +27,6 @@
 }
 
 .top_display {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100vw;
 }
@@ -75,7 +64,7 @@
   z-index: -1;
   background: linear-gradient(45deg, aqua, blue);
   width: 20vw;
-  border-radius: 0% 61% 59% 41% / 76% 69% 31% 24%;
+  border-radius: 0% 61% 59% 41%/76% 69% 31% 24%;
 }
 
 .rand2 {
@@ -87,7 +76,7 @@
   background: #9200fd;
   background: linear-gradient(45deg, aqua, purple);
   width: 20vw;
-  border-radius: 50% 50% 59% 41% / 76% 69% 31% 24%;
+  border-radius: 50% 50% 59% 41%/76% 69% 31% 24%;
 }
 
 .rand3 {
@@ -96,12 +85,11 @@
   z-index: -1;
   background: linear-gradient(45deg, aqua, blue);
   width: 300px;
-  border-radius: 0% 61% 59% 41% / 76% 69% 31% 24%;
+  border-radius: 0% 61% 59% 41%/76% 69% 31% 24%;
 }
 
-@-webkit-keyframes jog {}
-
-@keyframes jog {}.svg1 {
+@keyframes jog {}
+.svg1 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -127,8 +115,6 @@
 }
 
 .spans {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -137,4 +123,5 @@
   font-size: 20px;
   opacity: 0;
 }
+
 /*# sourceMappingURL=style.css.map */

@@ -32,7 +32,7 @@ export const Contact=()=>{
    gsap.to('.fa-paper-plane',{
      rotate:1.7,
      yoyo:true,
-     duration:1,
+     duration:5,
      repeat:-1,
      ease:'sine.inOut'
    })
