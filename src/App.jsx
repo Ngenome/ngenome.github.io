@@ -30,11 +30,13 @@ if (y<5){
 else{
   y=1;
 }
-  
+
 
   
 }
+ let checkWidth;
 function MainTitlePage() {
+    const [device,setDevice]=React.useState('desktop');
   const [currentImage,setCurrentImage]=React.useState(y);
   const [count, setCount]=React.useState(1)
   function setImg() {
@@ -50,6 +52,7 @@ function MainTitlePage() {
   
   
   }
+
   var xn = setInterval(z, 3000);
   var mn = setInterval(setImg, 5600);
   useEffect(()=>{
@@ -85,7 +88,7 @@ gsap.from('.span',{
   delay:3,
   ease:'bounce',
   duration:1,
-  stagger:.5,
+  stagger:1,
 
 
 })
@@ -103,7 +106,32 @@ gsap.from('.span',{
     clearInterval(mn);
   }
   
-  }, [currentImage]);
+  }, [currentImage]); 
+  const[cw, sw] = React.useState(480);
+    const wWidth=window.innerWidth;
+    const wHeight= window.innerHeight;
+    checkWidth = ()=>{
+
+    
+    if (wWidth<480){
+    cHeight = wHeight/2;  
+    cWidth = wWidth;
+    setDevice('phone');
+    sw(480)
+
+
+    }
+if (wWidth>480 && wWidth<768){
+    cHeight = wHeight/2;
+    cWidth = wWidth;
+    setDevice('tablet');
+     sw(768) 
+
+
+  }
+
+  }
+   
   useEffect(()=>{
 
 const scene = new THREE.Scene();
@@ -203,9 +231,26 @@ function Intro(){
 }
 function Main(){
   useEffect(()=>{
+    gsap.to('.rand2',{
+     y:-170,
+     yoyo:true,
+     repeat:-1,
+     duration:25,
+     ease:'sine.inOut',
+     
 
-  
-  },[])
+
+    })
+      gsap.to('body',{opacity:1,duration:1})
+
+    gsap.to('.rand3',{
+     y:120,                                                    yoyo:true,                                                  repeat:-1,
+      duration:25,
+  ease:'sine.inOut',
+                                                            
+
+    })
+      },[]);
   return(
     <Router>
     <div className='App'>

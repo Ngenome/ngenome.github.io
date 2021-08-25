@@ -28,9 +28,18 @@ const Display=(props)=>{
 }
 
 export const Contact=()=>{
+  React.useEffect(()=>{
+   gsap.to('.fa-paper-plane',{
+     rotate:1.7,
+     yoyo:true,
+     duration:1,
+     repeat:-1,
+     ease:'sine.inOut'
+   })
+  },[])
     return (
       <div className="contact-page">
-        <h1 className="contact-title">If you want to reach us </h1>
+        <h1 className="contact-title">Contact us </h1>
         <div>
           <form action="" className="contact-form">
             <div className="wrap"> 
@@ -59,7 +68,10 @@ export const Contact=()=>{
              <div className="wrap"> 
             <label htmlFor="message" id='message-label'>Message</label>
             <textarea name="message" id="mess-textarea" cols="30" rows="10"/>
-            </div>
+</div>
+            
+            <button  className='submit'type='submit' ><i className='fas fa-paper-plane'></i></button>
+          
           </form>
         </div>
       </div>

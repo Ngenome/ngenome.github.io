@@ -1,13 +1,17 @@
+@import './contact';
+
+
 .top_display {
   display: flex;
    
-  width:40vw;
+  width:100vw;
 
 
    
 }
+$bgcolor:rgba(9, 3, 27, 0.899);
 .contact-page{
-  background:rgba( 0,0,0,0.6  );
+  background:$bgcolor;
   height:100vh;
 
 
@@ -17,6 +21,11 @@
 }
 .contact-title {
   font-size: 4vw;
+  border-bottom: 1px solid rgb(255, 0, 242);
+  font-weight:200;
+  font-family:ubuntu;
+  text-align: center;
+
 
   background: linear-gradient(45deg, blue, aqua);
   -webkit-text-fill-color: transparent;
@@ -85,8 +94,8 @@
   position: fixed;
   bottom:0;
   right:0;
-  z-index: -1;
-  display:none;
+  z-index: 2;
+  //display:none;
 
 
 

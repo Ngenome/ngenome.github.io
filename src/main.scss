@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 *{
   padding: 0;
   margin: 0;
@@ -21,7 +22,7 @@ body{
    background :  linear-gradient(45deg,blue, red,purple) ;
   background-size: cover;
   min-height: 100vh;
- 
+  opacity:0;
   max-width: 100vw;
   
   
@@ -53,7 +54,7 @@ body{
   @media screen and (max-width:$phone){
     font-size:8vw;
   }
-  font-family:Ubuntu;
+  font-family:Cinzel;
   
 
   background: linear-gradient(45deg,purple,blue);
@@ -195,12 +196,14 @@ body{
   
   
 }
+
 .anchor_social{
   color: white;
   text-decoration: none;
   font-size: 5vw;
 }
 .fab{
+  transition:1s;
   color: white;
   font-size: 30px ;
   -webkit-box-reflect: below 1px  linear-gradient(transparent,#0005);
@@ -274,9 +277,9 @@ body{
    font-size:3vw; 
  }
  .fab:hover{
-   margin-bottom: 13px;
+
    color:white;
-   transform:translateY(10%) ;
+   transform:translateY(-10px) ;
  }
  .card{
    height:350px;

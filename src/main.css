@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -50,7 +51,7 @@ body {
   color: white;
   font-size: calc(7vw -1vw);
   font-weight: 400;
-  font-family: Ubuntu;
+  font-family: Cinzel;
   background: linear-gradient(45deg, purple, blue);
   background-size: 200%;
   -webkit-text-fill-color: transparent;
@@ -210,6 +211,8 @@ body {
 }
 
 .fab {
+  -webkit-transition: 1s;
+  transition: 1s;
   color: white;
   font-size: 30px;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
@@ -302,10 +305,9 @@ body {
 }
 
 .fab:hover {
-  margin-bottom: 13px;
   color: white;
-  -webkit-transform: translateY(10%);
-          transform: translateY(10%);
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
 }
 
 .card {
