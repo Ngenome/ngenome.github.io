@@ -18,11 +18,26 @@ import arch5 from './images/p02.jpg'
 import arch6 from './images/p03.jpg'
 //import {Importthem} from './3d.js' 
 const archies= [arch1,arch2,arch3,arch4,arch5,arch6];
-const archquotes=['']
+const clips=['polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)','polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)','polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)']
 let y=1;
 var i = document.querySelector('.home_image');
 function  z (){
-    if(i!=null) {
+    
+ 
+    gsap.from('.home_image', {       
+     duration: 1,
+     opacity: 0,
+    filter:'blur(5px)',
+
+    
+ 
+    })
+  //  gsap.fromTo(
+    //'.home_image',{clipPath:clips[0]},{
+       // clipPath:'polygon(100% 0%,100% 100%,0% 100%,0% 0%)'
+     
+  //  })
+   // if(i!=null) {
   //alert('yes')
    document.home_image.src=archies[y]
         if (y < 5) {
@@ -32,10 +47,10 @@ function  z (){
         else {
           y = 1;
         }
-    }
+    //}
   
 }
-setInterval(z,5200 );
+
 let checkWidth;
 function MainTitlePage() {
     const [device,setDevice]=React.useState('desktop');
@@ -91,9 +106,10 @@ gsap.from('.span',{
     opacity: 0,
       
    })
+      var xm =setInterval(z,8900 );
          
   return()=>{
-   // clearInterval(xn);
+    clearInterval(xm);
     //clearInterval(mn);
   }
   

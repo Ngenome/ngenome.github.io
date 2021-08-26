@@ -55,7 +55,7 @@ body {
 }
 
 .title_view {
-  position: relative;
+  position: static;
   top: 40vh;
   display: flex;
   justify-content: space-evenly;
@@ -67,7 +67,6 @@ body {
 }
 @media screen and (max-width: 480px) {
   .title_view {
-    top: 3vh;
     height: 49.99vh;
     width: 100vw;
   }
@@ -495,6 +494,10 @@ body {
   height: 100%;
   grid-area: "comments";
   grid-gap: 20px;
+}
+
+.home_image {
+  filter: blur(0px), brightness(40%);
 }
 
 .home_slide {
