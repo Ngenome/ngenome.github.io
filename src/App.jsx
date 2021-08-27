@@ -1,4 +1,4 @@
-import React, {useEffect}from 'react';
+import React, {useState,useEffect}from 'react';
 import ReactDOM from 'react-dom';
 import {CsButton} from './title.jsx'
 import {GalleryContainer} from './gallery.jsx'
@@ -145,7 +145,7 @@ if (wWidth>480 && wWidth<768){
       <div className="title_view">
         <div className="show">
           <h2>
-            <span className="jp">Jipas</span> <br />{" "}
+            <span className="jp">Jipas</span> <br />
             <span className="jp">Tensail</span><br/>
             <span className="jp"> Architectural</span>
           </h2>
@@ -175,11 +175,125 @@ if (wWidth>480 && wWidth<768){
     </div>
   );
 }
+//let bg;
+//let nv;
+
+//let nav_list;
+var xf =[]
+let mu = 0;
+function f (){
+  
+  
+}
+
 function Nav(){
+  const [yes,setYes]=useState('no');
+  
+  
+  React.useEffect(()=>{
+   var bg = document.querySelector('.burger')
+   var nv = document.querySelector('.nav');
+  var nav_list = document.querySelector('.nav_list');
+    var bars = document.querySelector('.bars');
+    var an =document.querySelectorAll('.nav_anchor');
+    bg.addEventListener('click', () => {
+      
+      if (mu ==0){
+        bars.classList.remove('fa-bars')
+        bars.classList.add('fa-times')
+        gsap.fromTo('.nav',  {height:'5vh'},{
+      
+          height:'100vh',
+          ease:'bounce',
+          delay:2,
+          duration: 2,
+        });
+        gsap.fromTo('.nav',{width:'100vh'}, {
+          duration: 2,
+          width: '60vw',
+          
+        });
+        gsap.to('.nav_anchor', {
+          duration: 0.5,
+          left: 25,
+          opacity:1,
+          stagger: 0.2,
+          delay:4,
+        });
+        mu=1;
+      }
+      else if(mu==1){
+           bars.classList.remove('fa-times')
+           bars.classList.add('fa-bars')
+        gsap.fromTo('.nav', {height:'100vh'}, {
+          duration: 1,
+          height:'5vh',
+          delay:2,
+        });
+        gsap.to('.nav',{
+          duration: 2,
+          width: '100vw',
+          delay: 3,
+          ease:'bounce'
+        });
+        gsap.to('.nav_anchor', {
+          duration: 1,
+          opacity:0,
+          
+          stagger:0.5,
+        });
+        gsap.to('.nav_anchor', {
+          duration: 0.5,
+          
+          left: -70,
+          stagger: 0.2,
+          delay:0.3
+        });
+        mu=0;
+      }
+      
+  
+    });
+    an.forEach(a =>{
+      a.addEventListener('click',()=>{
+      bars.classList.remove('fa-times')
+  bars.classList.add('fa-bars')
+  gsap.fromTo('.nav', { height: '100vh' }, {
+    duration: 1,
+    height: '5vh',
+    delay: 2,
+  });
+  gsap.to('.nav',  {
+    duration: 2,
+    width: '100vw',
+    delay: 4,
+    ease: 'bounce'
+  });
+  gsap.to('.nav_anchor', {
+    duration: 1,
+    opacity: 0,
+  
+    stagger: 0.5,
+  });
+  gsap.to('.nav_anchor', {
+    duration: 0.5,
+  
+    left: -70,
+    stagger: 0.2,
+    delay: 0.3
+  });
+  mu = 0;
+    })})
+    
+  },[])
+
   return(
     <nav className='nav'>
-    <h2>JT</h2>
-    <ul>
+<div className='th2'>
+      <h2>JT</h2>
+      <span className='burger'><i className='bars fas fa-bars'></i></span>
+      </div>
+    <ul className='nav_list'>
     <Link className='li' to='/'>
     <li>
     <a className='nav_anchor'>Home</a>
@@ -216,25 +330,8 @@ function Intro(){
 }
 function Main(){
   useEffect(()=>{
-    gsap.to('.rand2',{
-     y:-170,
-     yoyo:true,
-     repeat:-1,
-     duration:25,
-     ease:'sine.inOut',
-     
-
-
-    })
       gsap.to('body',{opacity:1,duration:1})
 
-    gsap.to('.rand3',{
-     y:120,                                                    yoyo:true,                                                  repeat:-1,
-      duration:25,
-  ease:'sine.inOut',
-                                                            
-
-    })
       },[]);
   return(
     <Router>
