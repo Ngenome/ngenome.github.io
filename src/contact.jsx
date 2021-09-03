@@ -73,6 +73,31 @@ export const Contact=()=>{
             <button  className='submit'type='submit' ><i className='fas fa-paper-plane'></i></button>
           
           </form>
+          <div className='lower-contacts' style={{display:'flex', justifyContent:'center'}}>
+          <div className='wrap-contact'  style={{display:'flex',
+          flexDirection:'column',
+          justifyContent:'space-around'}}>
+          <div className='c-ds'> <i className='fas fa-envelope'></i>  <a href='mailto:jipasgarments@gmail.com'>Email us</a>
+           
+          </div>
+          
+          <div className='c-ds'> 
+          <i className='fab fa-whatsapp'></i>
+          
+          <a href="https://api.whatsapp.com/send?phone=254736886886">
+          Send Message 
+          </a>
+          </div>
+          
+          <div className='c-ds'> 
+                    <i className='fas fa-phone'></i>
+                    <a href="tel:0736886886">
+                    Call us
+                    </a>
+                    </div>
+          
+          </div>
+          </div>
         </div>
       </div>
     );

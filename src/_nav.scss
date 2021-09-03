@@ -6,11 +6,13 @@
   justify-content:space-between;
    width:100%;
     @media screen and (max-width:768px){
-     flex-direction:column;
-     position:absolute;                                                            
-    z-index:3;         
+     flex-direction:column;  
      height:5vh;
-    width:60vw;
+     opacity:0;
+    width:100vw;
+    position:absolute;
+    z-index:3;
+    display: none;
     }
   height:5vh;
     background:rgba(0,0,0,0.9);
@@ -20,14 +22,16 @@
  
  
  }
-  .nav ul{   
-  opacity: 1;
+  .nav ul{
+  
   display:flex;
   flex-direction: row;
   @media screen and (max-width:768px){
+   
 
     height:80vh;
     flex-direction:column;
+    justify-content: center;
   }
      list-style:none;
      text-decoration: none;
@@ -63,31 +67,60 @@
   
 
   }
- .nav h2{
+  .th2 h2{
+    position: relative;
+    
+   color:white;
+   font-size: 4vw;
+    
+    @media screen and(min-width:$tablet) {
+      display: none;
+    }
+  }
+ .jt{
    
    color:white;
    font-size: 4vw;
    @media screen and(max-width:$phone){
      font-size:6vw;
+     position:absolute;
+     top:0;
+     left:0;
+     z-index: 4;
+   }
+   
+   @media screen and(min-width:$tablet){
+     display:none;
    }
  }
  .fa-bars{
  font-size:5vw;
  }
- .th2{
-display:flex;
-justify-content:space-between;
+ 
+ .burger{
+     position:fixed;
+     top:0;
+     right:0;
+     z-index:4;
+@media screen and(min-width:768px){
+display:none;
+
+
+}
+
+
  }
  .nav_anchor{
    text-decoration:none;
    color:#F4DFFF;
    font-family: ubuntu;
   
-   font-size:3vw; 
+   font-size:130%; 
    @media screen and (max-width:768px){
     font-size:5vw;
     position:relative;
     opacity:0;
-    font-weight:100;
+    font-weight:10;
+
    }
  }

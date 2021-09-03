@@ -3,8 +3,9 @@
 
 .top_display {
   display: flex;
-   
+  
   width:100vw;
+//  margin-top: 5vh;
 
 
    
@@ -13,6 +14,7 @@ $bgcolor:rgba(9, 3, 27, 0.899);
 .contact-page{
   background:$bgcolor;
   height:100vh;
+  
 
 
 }
@@ -25,6 +27,7 @@ $bgcolor:rgba(9, 3, 27, 0.899);
   font-weight:200;
   font-family:ubuntu;
   text-align: center;
+  //margin-top: 5vh;
 
 
   background: linear-gradient(45deg, blue, aqua);
@@ -72,7 +75,7 @@ $bgcolor:rgba(9, 3, 27, 0.899);
 }
 
 .svg1 {
-
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -109,7 +112,7 @@ $bgcolor:rgba(9, 3, 27, 0.899);
 .spans span{
   color:silver;
   font-size:   20px; 
-  
+  z-index:2;
   opacity:0;
 
 }

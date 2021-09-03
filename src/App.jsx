@@ -9,6 +9,7 @@ import {ServicePage} from './services.jsx'
  import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import {AboutPage} from './about.jsx'
 import {Contact } from './contact'
+import {LoginPage,SignupPage,UploadPage} from './login'
 import {BrowserRouter as Router, Switch,Route,Link} from 'react-router-dom'
 import arch1 from './images/p01.jpg'
 import arch2 from './images/p02.jpg'
@@ -166,7 +167,7 @@ if (wWidth>480 && wWidth<768){
              <img
              name="home_image"
             className="home_image"
-               src={archies[1]}
+              
             />
           
         </div>
@@ -195,60 +196,85 @@ function Nav(){
    var nv = document.querySelector('.nav');
   var nav_list = document.querySelector('.nav_list');
     var bars = document.querySelector('.bars');
-    var an =document.querySelectorAll('.nav_anchor');
+    
+    
+    var an =document.querySelectorAll('.li');
+    if (window.innerWidth<=768){
     bg.addEventListener('click', () => {
       
       if (mu ==0){
         bars.classList.remove('fa-bars')
         bars.classList.add('fa-times')
-        gsap.fromTo('.nav',  {height:'5vh'},{
+        gsap.to('.nav',  {
+          width:'60vw',
+          opacity:1,
+          display:'flex',
       
           height:'100vh',
+          
+        
+          background:'rgba(0,0,0,0.9)',
+          backdropFilter:'blur(5px)',
           ease:'bounce',
           delay:2,
           duration: 2,
         });
-        gsap.fromTo('.nav',{width:'100vh'}, {
-          duration: 2,
-          width: '60vw',
-          
-        });
-        gsap.to('.nav_anchor', {
+        
+        
+        gsap.to('.li', {
           duration: 0.5,
-          left: 25,
+          x: 15,
           opacity:1,
           stagger: 0.2,
           delay:4,
+          display:'block',
+          
         });
+           gsap.to('.nav_anchor', {
+             duration: 0.5,
+             
+             opacity: 1,
+             stagger: 0.2,
+             delay: 4,
+           });
         mu=1;
       }
       else if(mu==1){
            bars.classList.remove('fa-times')
            bars.classList.add('fa-bars')
-        gsap.fromTo('.nav', {height:'100vh'}, {
-          duration: 1,
-          height:'5vh',
-          delay:2,
-        });
-        gsap.to('.nav',{
-          duration: 2,
-          width: '100vw',
-          delay: 3,
-          ease:'bounce'
-        });
-        gsap.to('.nav_anchor', {
-          duration: 1,
-          opacity:0,
-          
-          stagger:0.5,
-        });
-        gsap.to('.nav_anchor', {
-          duration: 0.5,
-          
-          left: -70,
-          stagger: 0.2,
-          delay:0.3
-        });
+   gsap.to('.nav', {
+     width: '100vw',
+    opacity:0,
+    zIndex:-10,
+    display:'none',
+     height: '5vh',
+     
+   
+     background: 'rgba(0,0,0,0.9)',
+     backdropFilter: 'blur(5px)',
+     
+     delay: 2,
+     duration: 2,
+   });
+   
+   
+   gsap.to('.li', {
+     
+     duration: 0.5,
+     x: -15,
+     opacity: 0,
+     stagger: 0.2,
+     delay: 0,
+     display:'none',
+   
+   });
+   gsap.to('.nav_anchor', {
+     duration: 0.5,
+   
+     opacity: 0,
+     stagger: 0.2,
+     delay: 0,
+   });
         mu=0;
       }
       
@@ -256,43 +282,61 @@ function Nav(){
     });
     an.forEach(a =>{
       a.addEventListener('click',()=>{
-      bars.classList.remove('fa-times')
   bars.classList.add('fa-bars')
-  gsap.fromTo('.nav', { height: '100vh' }, {
-    duration: 1,
-    height: '5vh',
-    delay: 2,
-  });
-  gsap.to('.nav',  {
-    duration: 2,
-    width: '100vw',
-    delay: 4,
-    ease: 'bounce'
-  });
-  gsap.to('.nav_anchor', {
-    duration: 1,
-    opacity: 0,
-  
-    stagger: 0.5,
-  });
-  gsap.to('.nav_anchor', {
-    duration: 0.5,
-  
-    left: -70,
-    stagger: 0.2,
-    delay: 0.3
-  });
-  mu = 0;
-    })})
+  bars.classList.remove('fa-times')
+  gsap.to('.nav', {
+     width: '100vw',
+    opacity:0,
+    zIndex:-10,
+    display:'none',
+     height: '5vh',
+     
+   
+     background: 'rgba(0,0,0,0.9)',
+     backdropFilter: 'blur(5px)',
+     
+     delay: 2,
+     duration: 2,
+   });
+   
+   
+   gsap.to('.li', {
+     
+     duration: 0.5,
+     x: -15,
+     opacity: 0,
+     stagger: 0.2,
+     delay: 0,
+     display:'none',
+   
+   });
+   gsap.to('.nav_anchor', {
+     duration: 0.5,
+   
+     opacity: 0,
+     stagger: 0.2,
+     delay: 0,
+   });
+        mu=0;
+      
+      
+    })})}
     
   },[])
 
   return(
+    <div>
+    <div className='th2'>
+          <h2 className='jt'>JT</h2>
+          <span className='burger'><i className='bars fas fa-bars'></i></span>
+          </div>
+          
     <nav className='nav'>
-<div className='th2'>
-      <h2>JT</h2>
-      <span className='burger'><i className='bars fas fa-bars'></i></span>
-      </div>
+ <div className='th2'>
+          <h2 >JT</h2>
+        
+          </div>
+      <div className='nav-wrap'>
     <ul className='nav_list'>
     <Link className='li' to='/'>
     <li>
@@ -314,8 +358,33 @@ function Nav(){
       <a className='nav_anchor'>Contact</a>
        </li>
        </Link>
+       
+      <Link  className='li' to='/gallery'>
+     <li>
+      <a className='nav_anchor'>Gallery</a>
+       </li>
+       </Link>
+       
+      <Link  className='li' to='/login'>
+     <li>
+      <a className='nav_anchor'>Login</a>
+       </li>
+       </Link>
+       
+      <Link  className='li' to='/signup'>
+     <li>
+      <a className='nav_anchor'>Register</a>
+       </li>
+       </Link>
+       
+       <Link  className='li' to='/upload'>
+            <li>
+             <a className='nav_anchor'>Upload</a>
+              </li>
+              </Link>
     </ul>
-    </nav>
+    </div>
+    </nav></div>
     
     )
 }
@@ -330,8 +399,10 @@ function Intro(){
 }
 function Main(){
   useEffect(()=>{
-      gsap.to('body',{opacity:1,duration:1})
-
+      gsap.to('body',{opacity:1,
+     
+      duration:1})
+ 
       },[]);
   return(
     <Router>
@@ -346,6 +417,12 @@ function Main(){
         
     <Route path='/gallery' component={GalleryContainer}/>
     <Route path='/contact' component={Contact}/>
+    
+    <Route path='/login' component={LoginPage}/>
+    
+    <Route path='/signup' component={SignupPage}/>
+    
+    <Route path='/upload' component={UploadPage}/>
       </Switch>
       </div>
     </Router>
