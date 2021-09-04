@@ -22,6 +22,15 @@
  
  
  }
+ #nav_icon{
+   text-shadow: 1px 1px aqua;
+   margin-right: 2px;
+   
+    @media screen and (min-width:768px){
+      display: none;
+    }
+   
+ }
   .nav ul{
   
   display:flex;
@@ -35,7 +44,7 @@
   }
      list-style:none;
      text-decoration: none;
-    max-width:59vw;
+    
   }
  .li {
    
@@ -67,13 +76,13 @@
   
 
   }
-  .th2 h2{
+  .th2 h2,.th2{
     position: relative;
     
    color:white;
    font-size: 4vw;
     
-    @media screen and(min-width:$tablet) {
+    @media screen and(max-width:$tablet) {
       display: none;
     }
   }
@@ -103,7 +112,7 @@
      right:0;
      z-index:4;
 @media screen and(min-width:768px){
-display:none;
+      display:none;
 
 
 }

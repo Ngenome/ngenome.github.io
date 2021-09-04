@@ -41,10 +41,10 @@ export function AboutPage(){
         </div>
         <div className="about_desc_bottom">
           <SocialIcons
-            inlink="www.linkedin.com"
-            twitterlink="www.twitter.com"
-            fblink="www.facebook.com"
-            whatsapplink="www.whatsapp.com"
+            inlink="https://www.linkedin.com"
+            twitterlink='https://www.instagram.com'
+            fblink="https://www.facebook.com"
+            whatsapplink="https://api.whatsapp.com/send?phone=254736886886"
             iglink="www.instagram.com"
           />
         </div>
@@ -52,3 +52,5 @@ export function AboutPage(){
     </div>
   );
 }
+
+const  href="https://twitter.com/intent/tweet?text=Hello%20world"

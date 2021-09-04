@@ -37,7 +37,26 @@ function Popup(props){
                   }}><i className='fas fa-times-circle'></i></div>
                   
           <img name='changing'className='gimg' src={sr}/>
+          <div className='images_array'
           
+          >
+          {
+            props.arr.map((e)=>{
+              return(
+              <img  onClick={function setPopup() 
+    
+    {
+      visible = true;
+      vsclass='visible';
+      
+      
+      u(e.image)
+    
+    }} src={e.image}/>
+              )
+            })
+          }
+          </div>
           </div>
       )
   }
@@ -80,8 +99,6 @@ export function GalleryContainer(){
       url:'http://jipastentsail.pythonanywhere.com/jipasApi/imagelist',
       headers:{
         'content-type':'application/json',
-        
-        "Authorization":'Token a96d83d2f727f667f336068d703f05b46422c3867e6985d72824878d73b2fa44'
       }
       
       
@@ -105,7 +122,7 @@ export function GalleryContainer(){
   return(
     <div>
     <h2 className='gallery_h2'>Our past Accomplished Designs</h2>
-    <Popup vs={visible} src={source}/>
+    <Popup vs={visible} arr={m} src={source}/>
     <div className='gallery_container'>
     {m.map(h=>{
     

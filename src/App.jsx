@@ -1,15 +1,17 @@
 import React, {useState,useEffect}from 'react';
+import {Provider} from 'react-redux';
 import ReactDOM from 'react-dom';
 import {CsButton} from './title.jsx'
 import {GalleryContainer} from './gallery.jsx'
 import {gsap} from 'gsap'
 import {ServicePage} from './services.jsx' 
-
+import {createStore} from 'redux';
  import * as THREE from "three";
  import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import {AboutPage} from './about.jsx'
 import {Contact } from './contact'
 import {LoginPage,SignupPage,UploadPage} from './login'
+import {allReducers} from '../redux/index'
 import {BrowserRouter as Router, Switch,Route,Link} from 'react-router-dom'
 import arch1 from './images/p01.jpg'
 import arch2 from './images/p02.jpg'
@@ -33,13 +35,6 @@ function  z (){
     
  
     })
-  //  gsap.fromTo(
-    //'.home_image',{clipPath:clips[0]},{
-       // clipPath:'polygon(100% 0%,100% 100%,0% 100%,0% 0%)'
-     
-  //  })
-   // if(i!=null) {
-  //alert('yes')
    document.home_image.src=archies[y]
         if (y < 5) {
           y = y + 1;
@@ -51,7 +46,7 @@ function  z (){
     //}
   
 }
-
+const StateStore= createStore(allReducers)
 let checkWidth;
 function MainTitlePage() {
     const [device,setDevice]=React.useState('desktop');
@@ -186,7 +181,28 @@ function f (){
   
   
 }
-
+function Icon(props){
+  return(
+    <i id='nav_icon' className={props.cls}></i>
+    
+    )
+}
+function Footer(){
+  return(
+    <div className='footer'style={{
+      background:'rgba(0,0,0,0.8)',
+      backdropFilter:'blur(5px)',
+      color:'aqua',
+      fontFamily:'Teko',
+      fontSize:'120%'
+      
+    }}>
+    Jipas Tentsail &copy; 2021
+    </div>
+    
+    )
+  
+}
 function Nav(){
   const [yes,setYes]=useState('no');
   
@@ -216,8 +232,10 @@ function Nav(){
           background:'rgba(0,0,0,0.9)',
           backdropFilter:'blur(5px)',
           ease:'bounce',
-          delay:2,
+          zIndex:5,
+          delay:0,
           duration: 2,
+          
         });
         
         
@@ -226,13 +244,20 @@ function Nav(){
           x: 15,
           opacity:1,
           stagger: 0.2,
-          delay:4,
+          delay:2,
           display:'block',
           
         });
            gsap.to('.nav_anchor', {
              duration: 0.5,
              
+             opacity: 1,
+             stagger: 0.2,
+             delay: 4,
+           });
+           gsap.to('#nav_icon', {
+             duration: 0.5,
+           
              opacity: 1,
              stagger: 0.2,
              delay: 4,
@@ -326,10 +351,10 @@ function Nav(){
 
   return(
     <div>
-    <div className='th2'>
+  
           <h2 className='jt'>JT</h2>
           <span className='burger'><i className='bars fas fa-bars'></i></span>
-          </div>
+        
           
     <nav className='nav'>
  <div className='th2'>
@@ -339,49 +364,49 @@ function Nav(){
       <div className='nav-wrap'>
     <ul className='nav_list'>
     <Link className='li' to='/'>
-    <li>
+    <li>  <Icon cls='fas fa-home'/>
     <a className='nav_anchor'>Home</a>
      </li>
      </Link>
      <Link  className='li' to='/services'>
       <li>
+      <Icon cls='fas fa-wallet'/>
      <a className='nav_anchor'>Services</a>
        </li>
        </Link>
        <Link  className='li' to='/about'>
         <li>
+          <Icon cls='fas fa-question'/>
        <a className='nav_anchor' >About</a>
       </li>
       </Link>
       <Link  className='li' to='/contact'>
      <li>
+       <Icon cls='fas fa-phone'/>
       <a className='nav_anchor'>Contact</a>
        </li>
        </Link>
        
       <Link  className='li' to='/gallery'>
      <li>
+       <Icon cls='fas fa-image'/>
       <a className='nav_anchor'>Gallery</a>
        </li>
        </Link>
        
       <Link  className='li' to='/login'>
      <li>
+       <Icon cls='fas fa-sign-in-alt'/>
       <a className='nav_anchor'>Login</a>
        </li>
        </Link>
        
       <Link  className='li' to='/signup'>
      <li>
+       <Icon cls='fas fa-user-plus'/>
       <a className='nav_anchor'>Register</a>
        </li>
        </Link>
-       
-       <Link  className='li' to='/upload'>
-            <li>
-             <a className='nav_anchor'>Upload</a>
-              </li>
-              </Link>
     </ul>
     </div>
     </nav></div>
@@ -424,13 +449,16 @@ function Main(){
     
     <Route path='/upload' component={UploadPage}/>
       </Switch>
+      <Footer/>
       </div>
     </Router>
     
     )
 }
 ReactDOM.render(
-  <Main  />,
+  <Provider store={StateStore}>
+  <Main/>
+  </Provider>,
   document.querySelector('.react-app')
 );
 

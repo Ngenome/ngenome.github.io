@@ -1,3 +1,5 @@
+@import './variables';
+
 #popup{
  position: fixed;
  
@@ -37,11 +39,12 @@
   
 }
 .gallery_h2{
-  background: linear-gradient(45deg,#FF4040,#FF4040 );
+  background: linear-gradient(45deg,#E5B6FF,aqua );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   border-bottom: 2px solid #E82323;
   font-family: cursive;
+  text-shadow: 1px 1px #C55BFF
   
 }
 .visible{
@@ -74,10 +77,29 @@
 }
 .x i{
   position:relative;
-  left:400px;
+  text-align: center;
+   left:47vw;
   font-size: 3vw;
+  @media screen and (max-width:$tablet){
+    font-size: 130%;
+    
+  }
   color: red;
 }
 h2{
   font-family: Teko;
+}
+
+.images_array{
+  display: flex;
+  flex-wrap: nowrap;
+  width:100%;
+  overflow-x: scroll;
+  justify-content: space-evenly;
+  
+}
+.images_array img{
+  width:25vw;
+  border:1px solid #9B5BFF;
+  
 }

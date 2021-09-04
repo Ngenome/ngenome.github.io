@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector,useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { CsButton } from './title.jsx';
 import axios from 'axios';
@@ -18,8 +19,7 @@ export const LoginPage = () => {
   return (
     <div className="contact-page">
         <h1 className="contact-title"><i className='fas fa-padlock'></i>Login </h1>
-        <div>
-        
+        <div>=
           <form action="" className="contact-form">
               <div className="wrap"> 
              <label htmlFor="name" id='name-label'>Enter your Username</label>
@@ -107,7 +107,7 @@ export const SignupPage= () => {
   );
 }
 export const UploadPage = () => {
-  
+  const myToken =useSelector(state=>state.token);
   return (
     <div className="contact-page">
         <h1 className="contact-title">Upload</h1>
@@ -172,11 +172,3 @@ formData.append("category", 'yehheee');
       </div>
   );
  }
-
-// var formData = new FormData();
-// var imagefile = document.querySelector('#file');
-// formData.append("image", imagefile.files[0]);
-// axios.post('upload_file', formData, {
-//       headers: {
-//         'Content-Type': 'multipart/form-data'
-//       }})

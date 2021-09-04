@@ -26,12 +26,21 @@
   }
 }
 
+#nav_icon {
+  text-shadow: 1px 1px aqua;
+  margin-right: 2px;
+}
+@media screen and (min-width: 768px) {
+  #nav_icon {
+    display: none;
+  }
+}
+
 .nav ul {
   display: flex;
   flex-direction: row;
   list-style: none;
   text-decoration: none;
-  max-width: 59vw;
 }
 @media screen and (max-width: 768px) {
   .nav ul {
@@ -70,13 +79,13 @@
   height: 5vh;
 }
 
-.th2 h2 {
+.th2 h2, .th2 {
   position: relative;
   color: white;
   font-size: 4vw;
 }
-@media screen and (min-width: 768px) {
-  .th2 h2 {
+@media screen and (max-width: 768px) {
+  .th2 h2, .th2 {
     display: none;
   }
 }
@@ -206,11 +215,12 @@ body {
 }
 
 .gallery_h2 {
-  background: linear-gradient(45deg, #FF4040, #FF4040);
+  background: linear-gradient(45deg, #E5B6FF, aqua);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   border-bottom: 2px solid #E82323;
   font-family: cursive;
+  text-shadow: 1px 1px #C55BFF;
 }
 
 .visible {
@@ -242,13 +252,32 @@ body {
 
 .x i {
   position: relative;
-  left: 400px;
+  text-align: center;
+  left: 47vw;
   font-size: 3vw;
   color: red;
+}
+@media screen and (max-width: 768px) {
+  .x i {
+    font-size: 130%;
+  }
 }
 
 h2 {
   font-family: Teko;
+}
+
+.images_array {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+  justify-content: space-evenly;
+}
+
+.images_array img {
+  width: 25vw;
+  border: 1px solid #9B5BFF;
 }
 
 .jp {
@@ -304,15 +333,6 @@ h2 {
     height: 20px;
     font-size: 4px;
   }
-}
-
-.title_btn::before {
-  content: "";
-  z-index: 7;
-  position: relative;
-  height: 24px;
-  width: 32vw;
-  background: linear-gradient(45deg, red, blue, green);
 }
 
 .about_flex {
@@ -423,7 +443,7 @@ h2 {
 }
 
 .card {
-  z-index: 4;
+  z-index: 2;
   height: 350px;
   width: 230px;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
@@ -583,6 +603,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1;
 }
 
 .tilts {
@@ -840,6 +861,14 @@ h2 {
   font-size: 20px;
   z-index: 2;
   opacity: 0;
+}
+
+.footer {
+  background: rgba(0, 0, 0, 0.7);
+  height: 3vh;
+  backdrop-filter: blur(5px);
+  text-align: center;
+  padding: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */
