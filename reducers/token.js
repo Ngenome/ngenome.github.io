@@ -1,12 +1,17 @@
-const TokenReducer = (state='', action) =>{
+export const TokenReducer = (state='', action) =>{
 
 switch(action.type)
-{ case 'login':
+{ 
+      case "LOGIN":
 
-return state + 1;
+      return action.payload;
 
-    case "DECREMENT": 
-      return state -1;  }
+      case "LOGOUT": 
+        
+      return ''; 
+      default:
+      return state;
+      }
   
 }
 

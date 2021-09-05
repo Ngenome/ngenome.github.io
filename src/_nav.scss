@@ -23,9 +23,9 @@
  
  }
  #nav_icon{
-   text-shadow: 1px 1px aqua;
+   text-shadow: 1px 1px 4px red;
    margin-right: 2px;
-   
+   opacity:0;
     @media screen and (min-width:768px){
       display: none;
     }
@@ -126,7 +126,7 @@
   
    font-size:130%; 
    @media screen and (max-width:768px){
-    font-size:5vw;
+    font-size:3vw;
     position:relative;
     opacity:0;
     font-weight:10;

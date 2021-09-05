@@ -8,6 +8,7 @@ let visible =false;
  let src= './src/images/archy2.png';
  let u;
 let vsclass='invisible';
+import {useSelector, useDispatch} from 'react-redux';
 
 function Popup(props){
   const [sr, ssr]=React.useState('./images/archy2.jpg');
@@ -89,6 +90,8 @@ export function GalleryImage(props) {
   )
 }
 export function GalleryContainer(){
+  const authtoken=useSelector(state=>{state.token})
+  const dispatch= useDispatch();
   const [source, setSource]=React.useState(src);
   const [m,sm]=React.useState([])
   React.useEffect(() => {

@@ -1,13 +1,28 @@
 import React from 'react';
+
+import {BrowserRouter as Router, Switch,Route,Link} from 'react-router-dom'
 import {useSelector,useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { CsButton } from './title.jsx';
 import axios from 'axios';
 import { gsap } from 'gsap';
-
-
+import updateToken from '../actions/index.js';
+//import {Link} from 'react-routero'
+const styles= {
+  already:{
+    color:'purple',
+    textDecoration:'none',
+    
+  }
+}
 export const LoginPage = () => {
+  
+  
+  const authtoken = useSelector((state) =>state.MyToken);
+  const dispatch = useDispatch();
+  
   React.useEffect(() => {
+     
     gsap.to('.fa-paper-plane', {
       rotate: 1.7,
       yoyo: true,
@@ -19,7 +34,7 @@ export const LoginPage = () => {
   return (
     <div className="contact-page">
         <h1 className="contact-title"><i className='fas fa-padlock'></i>Login </h1>
-        <div>=
+        <div>
           <form action="" className="contact-form">
               <div className="wrap"> 
              <label htmlFor="name" id='name-label'>Enter your Username</label>
@@ -27,7 +42,7 @@ export const LoginPage = () => {
              required
                type="username"
                placeholder="Enter your username"
-               id="name"
+               id="username"
              />
  </div>
          
@@ -37,11 +52,53 @@ export const LoginPage = () => {
             required
               type="password"
               placeholder="Enter your password"
-              id="name"
+              id="password"
             />
+            
+            <div  style={{
+              color:'chartreuse',
+              fontSize:'14px',
+              fontFamily:'Poppins'
+            }}id='already'>Dont have an account <span><Link style={styles.already} to='/signup'>Sign Up</Link></span></div>
+            <div  style={{
+              color:'red',
+              fontSize:'25px',
+              fontFamily:'Poppins'
+            }}id='errordiv'></div>
 </div>
   
-            <button  className='submit'type='submit' ><i className='fas fa-paper-plane'></i>Login</button>
+            <button  
+            onClick={(e)=>{
+              e.preventDefault()
+              var password= document.querySelector('#password');
+              var errordiv = document.querySelector('#errordiv')
+              var username = document.querySelector("#username");
+
+    axios({
+      method: "post",
+      url: "http://jipastentsail.pythonanywhere.com/auth/login",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      data: {
+        "username": username.value,
+
+        "password": password.value,
+      },
+    }).then((r) => {
+        
+         dispatch(updateToken(r.data.token));
+         errordiv.innerHTML=authtoken
+            
+      //sm(rm);
+    }).catch(e => {
+      alert(e)
+          errordiv.innerHTML= 'wrong credentials ⚠️'
+        });
+    
+            }}
+            
+            className='submit'type='submit' ><i className='fas fa-paper-plane'></i>Login</button>
           
           </form>
       </div>
@@ -51,6 +108,10 @@ export const LoginPage = () => {
 
 
 export const SignupPage= () => {
+  const authtoken = useSelector((state) => {
+    state.token;
+  });
+  const dispatch = useDispatch();
   React.useEffect(() => {
     gsap.to('.fa-paper-plane', {
       rotate: 1.7,
@@ -59,7 +120,8 @@ export const SignupPage= () => {
       repeat: -1,
       ease: 'sine.inOut'
     })
-  }, [])
+  }, []);
+  
   return (
     <div className="contact-page">
         <h1 className="contact-title">Sign up </h1>
@@ -71,13 +133,13 @@ export const SignupPage= () => {
             required
               type="text"
               placeholder="Enter your username"
-              id="name"
+              id="susername"
             />
 </div>
  <div className="wrap"> 
             <label htmlFor="email" id='mail-label'>Email</label>
             <input
-            required type="text" placeholder="Enter your email  here" id="mailin" />
+            required type="text" placeholder="Enter your email  here" id="semail" />
             </div>
           <div className="wrap"> 
              <label htmlFor="name" id='name-label'>Enter your password</label>
@@ -85,20 +147,71 @@ export const SignupPage= () => {
              required
                type="password"
                placeholder="Enter your password"
-               id="name"
+               id="spassword"
              />
+             </div>
+             
+          <div className="wrap"> 
+             <label htmlFor="name" id='name-label'>Enter your password</label>
+             <input
+             required
+               type="password"
+               placeholder="Repeat your password"
+               id="srpassword"
+             />
+             
+            <div  style={{
+              color:'chartreuse',
+              fontSize:'14px',
+              fontFamily:'Poppins'
+            }}id='already'>Already have an account? <span><Link  style={styles.already} to='/login'>Login</Link></span></div>
+            
+             <div style={{
+              color:'red',
+              fontSize:'14px',
+              fontFamily:'Poppins'
+            }}id='serrordiv'></div>
  </div>
          
             
             <button  className='submit'type='submit' 
-            onClick={
-              (e)=>{
-                e.preventDefault()
-                axios({
-                  method:'post',
-                  
-                })}
-}><i className='fas fa-paper-plane'></i> Signup</button>
+           
+            onClick={(e)=>{
+              e.preventDefault()
+              
+              var semail= document.querySelector('#semail')
+              var spassword= document.querySelector('#spassword');
+              var serrordiv = document.querySelector('#serrordiv')
+              
+              var srpassword= document.querySelector('#srpassword');
+              var susername = document.querySelector("#susername");
+     if (spassword!=srpassword){serrordiv.innerHTML=' sorry passwords didnt match'}else{
+    axios({
+      method: "post",
+      url: "http://jipastentsail.pythonanywhere.com/auth/register",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      data: {
+        "username": susername.value,
+        "email":semail.value,
+
+        "password": spassword.value,
+      },
+    }).then((r) => {
+         alert('user created successfully')
+         dispatch(updateToken(r.data.token));
+         serrordiv.innerHTML= ''
+            
+      //sm(rm);
+    }).catch(e => {
+    alert(e)
+    
+          serrordiv.innerHTML= 'wrong credentials  ⚠️'
+        });}
+    
+            }}
+><i className='fas fa-paper-plane'></i> Signup</button>
           
           </form>
          

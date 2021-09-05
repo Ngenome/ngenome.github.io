@@ -27,8 +27,9 @@
 }
 
 #nav_icon {
-  text-shadow: 1px 1px aqua;
+  text-shadow: 1px 1px 4px red;
   margin-right: 2px;
+  opacity: 0;
 }
 @media screen and (min-width: 768px) {
   #nav_icon {
@@ -133,7 +134,7 @@
 }
 @media screen and (max-width: 768px) {
   .nav_anchor {
-    font-size: 5vw;
+    font-size: 3vw;
     position: relative;
     opacity: 0;
     font-weight: 10;
@@ -717,18 +718,44 @@ h2 {
   display: flex;
   flex-direction: column;
 }
+@media screen and (min-width: 768px) {
+  .wrap {
+    margin-left: 20vw;
+    background: rgba(200, 200, 200, 0.5);
+    width: 65vw;
+    padding: 20px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+  }
+}
 .wrap label {
   color: aqua;
   font-family: poppins;
+  font-size: 10px;
+}
+@media screen and (min-width: 768px) {
+  .wrap label {
+    font-size: 20px;
+  }
 }
 .wrap input {
   height: 44px;
   border-radius: 10px;
 }
+@media screen and (min-width: 768px) {
+  .wrap input {
+    width: 60vw;
+  }
+}
 .wrap input, .wrap textarea {
   color: #1efc30;
   border: 1px solid #497979;
   background: rgba(6, 3, 34, 0.8);
+}
+@media screen and (min-width: 768px) {
+  .wrap input, .wrap textarea {
+    width: 60vw;
+  }
 }
 .wrap textarea {
   border-radius: 20px;
@@ -739,6 +766,7 @@ h2 {
   background: transparent;
   border-radius: 7px;
   border: none;
+  margin-left: 20vw;
 }
 
 .lower-contact {
@@ -750,12 +778,19 @@ h2 {
 }
 
 .c-ds a {
-  color: #6DE5FF;
+  color: chartreuse;
   text-decoration: none;
   margin-left: 5px;
   text-align: left;
-  font-size: 20px;
-  font-family: poppins;
+  font-size: 14px;
+  font-family: cursive;
+  margin-bottom: 3vh;
+}
+@media screen and (min-width: 768px) {
+  .c-ds a {
+    font-size: 30px;
+    margin-bottom: 1vh;
+  }
 }
 
 .c-ds i {

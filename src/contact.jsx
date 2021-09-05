@@ -40,7 +40,7 @@ export const Contact=()=>{
     return (
       <div className="contact-page">
         <h1 className="contact-title">Contact us </h1>
-        <div>
+        <div className='forms'>
           <form action="" className="contact-form">
             <div className="wrap"> 
             <label htmlFor="name" id='name-label'>Enter your Name</label>

@@ -11,7 +11,7 @@ import {createStore} from 'redux';
 import {AboutPage} from './about.jsx'
 import {Contact } from './contact'
 import {LoginPage,SignupPage,UploadPage} from './login'
-import {allReducers} from '../redux/index'
+import {allReducers} from '../reducers/index'
 import {BrowserRouter as Router, Switch,Route,Link} from 'react-router-dom'
 import arch1 from './images/p01.jpg'
 import arch2 from './images/p02.jpg'
@@ -58,7 +58,7 @@ function MainTitlePage() {
   gsap.from('.show', {
   duration: 2,
   opacity: 0,
-  ease: 'bounce',
+ease: 'bounce',
 })
 gsap.from('.title_btn',{
   opacity:0,
@@ -69,7 +69,7 @@ gsap.from('.jp',{
 
   opacity:0,
   duration:1,
-  delay:0,
+  delay:0, 
   stagger:1,
 })
  gsap.to('.span',{
@@ -231,10 +231,9 @@ function Nav(){
         
           background:'rgba(0,0,0,0.9)',
           backdropFilter:'blur(5px)',
-          ease:'bounce',
           zIndex:5,
           delay:0,
-          duration: 2,
+          duration: 1,
           
         });
         
@@ -250,17 +249,16 @@ function Nav(){
         });
            gsap.to('.nav_anchor', {
              duration: 0.5,
-             
              opacity: 1,
-             stagger: 0.2,
-             delay: 4,
+             stagger: 0.5,
+             delay: 3,
            });
            gsap.to('#nav_icon', {
-             duration: 0.5,
+             duration: 1,
            
              opacity: 1,
-             stagger: 0.2,
-             delay: 4,
+             stagger: .2,
+             delay: 2,
            });
         mu=1;
       }

@@ -1,16 +1,17 @@
-const LoggedReducer = (state='', action) =>{
+export const LoggedReducer = (state=false, action) =>{
 
 switch(action.type)
-{ case 'login':
+{ case "LOGIN":
 
-return true;
+     return true;
 
-    case "logout": 
+    case "LOGOUT": 
       return false; 
-   default:return state;   
+      
+   default:return false;   
   
 }
   
 }
 
-export default TokenReducer;
+export default LoggedReducer;
