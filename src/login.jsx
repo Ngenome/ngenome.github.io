@@ -88,7 +88,7 @@ export const LoginPage = () => {
             
       //sm(rm);
     }).catch(e => {
-        
+         alert(e)
           errordiv.innerHTML= 'wrong credentials ⚠️'
         });
     
