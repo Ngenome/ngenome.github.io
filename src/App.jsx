@@ -6,6 +6,7 @@ import {GalleryContainer} from './gallery.jsx'
 import {gsap} from 'gsap'
 import {ServicePage} from './services.jsx' 
 import {createStore} from 'redux';
+import {useSelector,useDispatch} from 'react-redux';
  import * as THREE from "three";
  import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import {AboutPage} from './about.jsx'
@@ -19,7 +20,7 @@ import arch3 from './images/p03.jpg'
 import arch4 from './images/p01.jpg'
 import arch5 from './images/p02.jpg'
 import arch6 from './images/p03.jpg'
-//import {Importthem} from './3d.js' 
+import {LogoutPage} from './logout';
 const archies= [arch1,arch2,arch3,arch4,arch5,arch6];
 const clips=['polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)','polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)','polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)']
 let y=1;
@@ -206,7 +207,7 @@ function Footer(){
 function Nav(){
   const [yes,setYes]=useState('no');
   
-  
+  const isLogged = useSelector(state=> state.isLogged)
   React.useEffect(()=>{
    var bg = document.querySelector('.burger')
    var nv = document.querySelector('.nav');
@@ -391,13 +392,20 @@ function Nav(){
       <a className='nav_anchor'>Gallery</a>
        </li>
        </Link>
-       
+       {
+       isLogged==false?
       <Link  className='li' to='/login'>
      <li>
        <Icon cls='fas fa-sign-in-alt'/>
       <a className='nav_anchor'>Login</a>
        </li>
-       </Link>
+       </Link>:<Link  className='li' to='/logout'>
+            <li>
+              <Icon cls='fas fa-sign-in-alt'/>
+             <a className='nav_anchor'>Logout</a>
+              </li>
+              </Link>
+       }
        
       <Link  className='li' to='/signup'>
      <li>
@@ -446,6 +454,8 @@ function Main(){
     <Route path='/signup' component={SignupPage}/>
     
     <Route path='/upload' component={UploadPage}/>
+
+    <Route path='/logout' component={LogoutPage}/>
       </Switch>
       <Footer/>
       </div>

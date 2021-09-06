@@ -27,9 +27,11 @@
 }
 
 #nav_icon {
-  text-shadow: 1px 1px 4px red;
   margin-right: 2px;
   opacity: 0;
+  /*-webkit-text-fill-color: transparent !important;
+  -webkit-background-clip: text !important;
+  font-family: ubuntu; */
 }
 @media screen and (min-width: 768px) {
   #nav_icon {
@@ -418,6 +420,19 @@ h2 {
   }
 }
 
+.anchor_social .fas {
+  transition: 1s;
+  color: white;
+  font-size: 30px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+  margin-left: 15px;
+}
+@media screen and (max-width: 1200px) {
+  .anchor_social .fas {
+    font-size: 20px;
+  }
+}
+
 .fa-instagram {
   background: linear-gradient(45deg, orange, red, blue);
   -webkit-background-clip: text;
@@ -716,6 +731,9 @@ h2 {
 
 .wrap {
   display: flex;
+  background: rgba(200, 200, 200, 0.5);
+  padding: 20px;
+  backdrop-filter: blur(5px);
   flex-direction: column;
 }
 @media screen and (min-width: 768px) {
@@ -762,11 +780,11 @@ h2 {
 }
 
 .submit {
-  color: aqua;
-  background: transparent;
+  color: #B1B1B1;
+  background: linear-gradient(45deg, #8B46FF, blue);
   border-radius: 7px;
   border: none;
-  margin-left: 20vw;
+  width: 30vw;
 }
 
 .lower-contact {
@@ -801,6 +819,71 @@ h2 {
 .top_display {
   display: flex;
   width: 100vw;
+}
+
+.logout_button {
+  width: 30vw;
+  height: 3vh;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.9);
+  background-size: 200%;
+  border: none;
+  box-shadow: 1px 1px 2px #472321, -1px -1px 2px #472321;
+  animation: border 10s infinite alternate;
+}
+@media screen and (min-width: 768px) {
+  .logout_button {
+    border-radius: 30px;
+  }
+}
+.logout_button span {
+  background: linear-gradient(45deg, #790808, #832BFF);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-family: ubuntu;
+}
+
+@keyframes border {
+  0% {
+    box-shadow: 1px 1px 2px red, -1px -1px 2px red;
+  }
+  30% {
+    box-shadow: 1px 1px 2px green, -1px -1px 2px green;
+  }
+  70% {
+    box-shadow: 1px 1px 2px blue, -1px -1px 2px blue;
+  }
+  100% {
+    box-shadow: 1px 1px 2px red, -1px -1px 2px red;
+  }
+}
+.logout {
+  background: url("./abt.jpg");
+  height: 90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.logout .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.899);
+}
+
+.logout_span {
+  color: #787878;
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-family: monospace;
+}
+@media screen and (min-width: 768px) {
+  .logout_span {
+    margin-bottom: 30px;
+  }
 }
 
 .contact-page {

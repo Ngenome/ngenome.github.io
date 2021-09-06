@@ -10,6 +10,87 @@
 
    
 }
+.logout_button{
+  width:30vw;
+  height:3vh;
+  border-radius: 10px;
+  //filter:blur(5px);
+  background:rgba(0,0,0,0.9);
+  
+  background-size: 200%;
+  border:none;
+   @media screen and (min-width:768px) {
+     border-radius: 30px;
+     
+  
+   }
+  span{
+    
+  
+
+  background: linear-gradient(45deg, #790808, #832BFF);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-family: ubuntu;
+  
+    
+  }
+  box-shadow: 1px 1px 2px #472321,
+  -1px -1px 2px #472321;
+
+animation: border 10s infinite alternate;
+}
+@keyframes border{
+  0%{
+    box-shadow: 1px 1px 2px red,
+    -1px -1px 2px red;
+    
+  }
+  30% {
+    box-shadow: 1px 1px 2px green,
+    -1px -1px 2px green;
+  
+  }
+  70%{
+    box-shadow: 1px 1px 2px blue,
+    -1px -1px 2px blue;
+  }
+  100%{
+    box-shadow: 1px 1px 2px red,
+    -1px -1px 2px red;
+  }
+}
+.logout{
+  background: url('./abt.jpg');
+  height:90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  
+}
+.logout .main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:90vh;
+  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.899);
+
+  
+ 
+  
+}
+.logout_span{
+  color:#787878;
+  font-size: 16px;
+  margin-bottom: 15px;
+  @media screen and (min-width:768px){
+    margin-bottom: 30px;
+    
+  }
+  font-family: monospace;
+}
 $bgcolor:rgba(9, 3, 27, 0.899);
 .contact-page{
   background:$bgcolor;

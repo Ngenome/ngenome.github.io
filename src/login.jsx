@@ -23,13 +23,7 @@ export const LoginPage = () => {
   
   React.useEffect(() => {
      
-    gsap.to('.fa-paper-plane', {
-      rotate: 1.7,
-      yoyo: true,
-      duration: 5,
-      repeat: -1,
-      ease: 'sine.inOut'
-    })
+    
   }, []) 
   return (
     <div className="contact-page">
@@ -59,10 +53,10 @@ export const LoginPage = () => {
               color:'chartreuse',
               fontSize:'14px',
               fontFamily:'Poppins'
-            }}id='already'>Dont have an account <span><Link style={styles.already} to='/signup'>Sign Up</Link></span></div>
+            }}id='already'>Dont have an account <span><Link style={styles.already} to='/signup'>Sign Up</Link></span>
             <div  style={{
               color:'red',
-              fontSize:'25px',
+              fontSize:'14px',
               fontFamily:'Poppins'
             }}id='errordiv'></div>
 </div>
@@ -88,18 +82,20 @@ export const LoginPage = () => {
     }).then((r) => {
         
          dispatch(updateToken(r.data.token));
-         errordiv.innerHTML=authtoken
+         errordiv.innerHTML=''
+         
+         //location.assign('/services')
             
       //sm(rm);
     }).catch(e => {
-      alert(e)
+        
           errordiv.innerHTML= 'wrong credentials ⚠️'
         });
     
             }}
             
-            className='submit'type='submit' ><i className='fas fa-paper-plane'></i>Login</button>
-          
+            className='submit'type='submit' >Login</button>
+          </div>
           </form>
       </div>
       </div>
@@ -113,13 +109,7 @@ export const SignupPage= () => {
   });
   const dispatch = useDispatch();
   React.useEffect(() => {
-    gsap.to('.fa-paper-plane', {
-      rotate: 1.7,
-      yoyo: true,
-      duration: 5,
-      repeat: -1,
-      ease: 'sine.inOut'
-    })
+    
   }, []);
   
   return (
@@ -171,7 +161,7 @@ export const SignupPage= () => {
               fontSize:'14px',
               fontFamily:'Poppins'
             }}id='serrordiv'></div>
- </div>
+ 
          
             
             <button  className='submit'type='submit' 
@@ -205,14 +195,13 @@ export const SignupPage= () => {
             
       //sm(rm);
     }).catch(e => {
-    alert(e)
     
-          serrordiv.innerHTML= 'wrong credentials  ⚠️'
+          serrordiv.innerHTML= 'wrong credentials  ⚠️' 
         });}
     
             }}
 ><i className='fas fa-paper-plane'></i> Signup</button>
-          
+          </div>
           </form>
          
       </div>

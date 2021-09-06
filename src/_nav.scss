@@ -2,9 +2,9 @@
 
  .nav{
      visibility:visible;
-   display:flex;
-  justify-content:space-between;
-   width:100%;
+     display:flex;
+     justify-content:space-between;
+     width:100%;
     @media screen and (max-width:768px){
      flex-direction:column;  
      height:5vh;
@@ -23,9 +23,13 @@
  
  }
  #nav_icon{
-   text-shadow: 1px 1px 4px red;
+   
    margin-right: 2px;
    opacity:0;
+   // background: blue !important;
+   /*-webkit-text-fill-color: transparent !important;
+   -webkit-background-clip: text !important;
+   font-family: ubuntu; */
     @media screen and (min-width:768px){
       display: none;
     }

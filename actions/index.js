@@ -4,4 +4,8 @@ export  const updateToken=(token)=>{
            payload:token
        }
 }
+export const logout ={
+    type: "LOGOUT",
+  }
+
 export default updateToken;  

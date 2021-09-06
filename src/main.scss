@@ -210,6 +210,18 @@ body{
   }
   
 }
+.anchor_social .fas{
+    transition:1s;
+  color: white;
+  font-size: 30px ;
+  -webkit-box-reflect: below 1px  linear-gradient(transparent,#0005);
+  margin-left: 15px;
+  @media screen and (max-width:$desktop){
+    font-size:20px;
+  }
+}
+  
+
 .fa-instagram{
   background: linear-gradient(45deg,orange,red,blue);
   -webkit-background-clip: text;
