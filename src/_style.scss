@@ -1,6 +1,85 @@
 @import './contact';
+.swiper-pagination-bullet{
+  color: red;
+  background: red !important;
+}
+.swiper-button-next, .swiper-button-prev{
+  color: #D1D5FC !important;
+}
+$footer_color:#848484;
+.swipe_wrap{
+  position: relative;
+}
+.jtp{
+  position: absolute;
+  top:0;
+  text-align: center;
+  height:100%;
+  width:100%;
+  background:linear-gradient(45deg, rgba(0,0,0,0.3), #3C2F6D);
+  color:#CCC1FB;
+  font-family: poppins;
+  font-size: 18px;
+}
+.footer {
+  text-align: center;
+  
+  span{
+  color: $footer_color;
+  text-align: center;
+  
+  font-family: poppins;
+  font-size: 80%;
+    a{
+      text-decoration: none;
+      color: #6F3F98;
+      
+    }
+  }
+  background: #090B1B;
+  height: 11vh;
+  backdrop-filter: blur(5px);
+
+  
 
 
+}
+.footer_icons{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  
+}
+.footer_a{
+  color: $footer_color;
+  text-decoration: none;
+}
+.footer_a i{
+  color: $footer_color;
+  margin-left: 15px;
+  
+//  -webkit-box-reflect: below 1px  linear-gradient(transparent,#0005);
+}
+#small{
+font-size:10px;
+}
+.footer_list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style: none;
+  
+  
+}
+.footer_li{
+  
+}
+.footer_anchor{
+  color:#9A9A9A;
+  font-size:10px;
+  font-family: poppins;
+  text-decoration: none;
+}
 .top_display {
   display: flex;
   
@@ -9,6 +88,9 @@
 
 
    
+}
+.swp{
+  
 }
 .logout_button{
   width:30vw;
@@ -203,4 +285,7 @@ body{
      
    
 }
+}
+.active{
+  color:red;
 }

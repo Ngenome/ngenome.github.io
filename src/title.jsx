@@ -13,7 +13,8 @@ export function CsButton(props){
   return(
     <div className="btn_wrap"> 
     <button className='title_btn'>
-    {props.btnname}
+    <span>
+    {props.btnname}</span>
     </button>
     </div>
     )

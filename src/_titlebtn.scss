@@ -7,6 +7,11 @@
  
 .title_btn{
     height: 47px;
+    span{
+    font-size: 20px;
+    @media screen and (min-width: 768px){
+      font-size:20px;
+    }}
     width: 77px;
     position: absolute;
     transform: translate(-50%,-50%);
@@ -41,7 +46,7 @@
     }
 }
 title_btn:after{
-    content: "See how we do it";
+    
     position: absolute;
     background-color: #1c1b29;
     height: 93%;

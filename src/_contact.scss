@@ -1,4 +1,17 @@
 @import './variables';
+.loader {
+  border: 16px solid #4C4C4C; /* Light grey */
+  border-top: 16px solid #C736FF; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 .forms{
   @media screen and (min-width){
 //  display: flex;
@@ -9,7 +22,7 @@
 }
 .wrap{
     display:flex;
-    background: rgba(200,200,200,0.5);
+    //background: rgba(200,200,200,0.5);
       
       padding: 20px;
       
@@ -17,7 +30,7 @@
       
     @media screen and (min-width:768px) {
       margin-left: 20vw;
-      background: rgba(200,200,200,0.5);
+      //background: rgba(200,200,200,0.5);
       width:65vw;
       padding: 20px;
       border-radius: 5px;
@@ -60,11 +73,12 @@
 .submit{
     color:#B1B1B1;
 
-    background:linear-gradient(45deg, #8B46FF, blue);
+    
     border-radius:  7px;
     //background-size: 300px;
     
     border:none;
+    background: transparent;
     width:30vw;
   
 
@@ -81,20 +95,66 @@
   
 }
 .c-ds a{
-  color:chartreuse;
+  color:#525F5F;
   text-decoration: none;
   margin-left: 5px;
   text-align: left;
   font-size: 14px;
-  font-family: cursive;
-  margin-bottom: 3vh;
+  font-family:poppins;
+  
   @media screen and (min-width:768px){
     font-size:30px;
-    margin-bottom: 1vh;
+    
   }
   
 }
 .c-ds i {
-  color: white;
-  font-size: 20px;
+  color: #417D44;
+  //background: aqua !important;
+  font-size: 15px;
+  
+}
+.contact_page{
+ background:rgba(200,200,200,0.8);
+ min-height: 70vh;
+}
+.pop{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  z-index: 4;
+  backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  
+}
+.popcheck{
+  height:10vh;
+  width:30vw;
+  background: #2D2D2D;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  
+  .fa-check{
+    font-size: 29px;
+    color:lime;
+    text-align: center;
+    
+  }
+  span{
+    color:chartreuse;
+    font-family: poppins;
+    font-size: 10px;
+    text-align: center;
+  }
+  
+}
+.top_welcome{
+  color: #A5A8C8;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: linear-gradient(45deg, rgba(0,0,0,0.5),black), url('./images/service3.jpg')
 }

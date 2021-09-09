@@ -6,8 +6,8 @@ import ReactDOM from 'react-dom';
 import { CsButton } from './title.jsx';
 import axios from 'axios';
 import { gsap } from 'gsap';
-import updateToken from '../actions/index.js';
-//import {Link} from 'react-routero'
+import updateToken,{changePage} from '../actions/index.js';
+import { Redirect} from 'react-router'
 const styles= {
   already:{
     color:'purple',
@@ -19,14 +19,16 @@ export const LoginPage = () => {
   
   
   const authtoken = useSelector((state) =>state.MyToken);
+  
+  const isLogged = useSelector((state) =>state.isLogged);
   const dispatch = useDispatch();
   
   React.useEffect(() => {
-     
+    dispatch(changePage('login')) 
     
   }, []) 
   return (
-    <div className="contact-page">
+  isLogged?<Redirect push to='/'/>:<div className="contact-page">
         <h1 className="contact-title"><i className='fas fa-padlock'></i>Login </h1>
         <div>
           <form action="" className="contact-form">
@@ -82,11 +84,13 @@ export const LoginPage = () => {
     }).then((r) => {
         
          dispatch(updateToken(r.data.token));
-         errordiv.innerHTML=''
+         errordiv.innerHTML='';
+         if (typeof(Storage) !== "undefined") {
+           localStorage.setItem("jipasToken", r.data.token);
+         } else {
+            alert('sorry we couldnt log you in ');
+         }
          
-         //location.assign('/services')
-            
-      //sm(rm);
     }).catch(e => {
          alert(e)
           errordiv.innerHTML= 'wrong credentials ⚠️'
@@ -109,7 +113,7 @@ export const SignupPage= () => {
   });
   const dispatch = useDispatch();
   React.useEffect(() => {
-    
+    dispatch(changePage("signup"))
   }, []);
   
   return (
@@ -192,6 +196,11 @@ export const SignupPage= () => {
          alert('user created successfully')
          dispatch(updateToken(r.data.token));
          serrordiv.innerHTML= ''
+         if (typeof(Storage) !== "undefined") {
+           localStorage.setItem("jipasToken", r.data.token);
+         } else {
+           alert('sorry we couldnt save your credentials you will have to login again next time');
+         }
             
       //sm(rm);
     }).catch(e => {

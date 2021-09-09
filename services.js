@@ -33,6 +33,7 @@ class Tilt extends React.Component {
     max: 30
   };
 export function ServicePage(){
+
   return(
     <div className='service_flex'>
     

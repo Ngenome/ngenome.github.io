@@ -9,12 +9,15 @@ let visible =false;
  let u;
 let vsclass='invisible';
 import {useSelector, useDispatch} from 'react-redux';
-
+import {changePage} from '../actions/index'
 function Popup(props){
+  //React.useEffect()
   const [sr, ssr]=React.useState('./images/archy2.jpg');
+  const [si, ssi]=React.useState(0);
   const [vs, svs]=React.useState('invisible')
-  u=(x)=>{ 
+  u=(x,y)=>{ 
     ssr(x)
+    ssi(y)
   }
   setInterval(function  sq() {
    if(visible){
@@ -27,8 +30,23 @@ function Popup(props){
    
    
   },1000)
-  React.useEffect(()=>{
-    document.changing.src=sr;
+  
+  React.useLayoutEffect(()=>{
+    
+    gsap.to('.gimg',{
+      opacity:0,
+      duration:0.1
+    })
+    gsap.to('.gimg', {
+          opacity: 1,
+          duration: 1,
+        }
+      )
+      
+      document.changing.src=sr;
+        
+    
+    
   },[sr])
     return(
         
@@ -36,13 +54,35 @@ function Popup(props){
         <div className='x' onClick={()=>{
                     visible=false;
                   }}><i className='fas fa-times-circle'></i></div>
-                  
-          <img name='changing'className='gimg' src={sr}/>
+             <div className='popup_image_wrap'> 
+             
+             <div className='main_image'>
+         <div className='prev'     onClick={function() 
+    
+    {
+      
+      
+      u(props.arr[si-1].image,si-1)
+      
+    
+    }}><i className='fas fa-arrow-left'></i></div> <img name='changing'className='gimg' src={sr}/>
+         <div className='next'
+          onClick={function() 
+    
+    {
+      
+      
+      u(props.arr[si+1].image, si+1)
+      
+    
+    }}
+         ><i className='fas fa-arrow-right'></i></div>
+          </div>
           <div className='images_array'
           
           >
           {
-            props.arr.map((e)=>{
+            props.arr.map((e,i)=>{
               return(
               <img  onClick={function setPopup() 
     
@@ -51,12 +91,14 @@ function Popup(props){
       vsclass='visible';
       
       
-      u(e.image)
+      u(e.image,i)
+      
     
     }} src={e.image}/>
               )
             })
           }
+          </div>
           </div>
           </div>
       )
@@ -78,7 +120,8 @@ export function GalleryImage(props) {
       vsclass='visible';
       
       
-      u(props.src)
+      u(props.src,props.index)
+      
     
     }} className='gallery_image_container'>
     
@@ -92,6 +135,7 @@ export function GalleryImage(props) {
 export function GalleryContainer(){
   const authtoken=useSelector(state=>{state.token})
   const dispatch= useDispatch();
+  dispatch(changePage('gallery'))
   const [source, setSource]=React.useState(src);
   const [m,sm]=React.useState([])
   React.useEffect(() => {
@@ -124,13 +168,15 @@ export function GalleryContainer(){
   }, [])
   return(
     <div>
+    <div className='gallery_h2_wrap'>
     <h2 className='gallery_h2'>Our past Accomplished Designs</h2>
+    </div>
     <Popup vs={visible} arr={m} src={source}/>
     <div className='gallery_container'>
-    {m.map(h=>{
+    {m.map((h,i)=>{
     
       return(
-      <GalleryImage src={h.image}/>
+      <GalleryImage src={h.image} index={i}/>
       )
       
     })}
