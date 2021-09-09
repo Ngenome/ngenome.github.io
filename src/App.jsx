@@ -29,9 +29,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import arch1 from './images/arch2.jpg'
 import arch2 from './images/arch.jpg'
 import arch3 from './images/arch4.jpg'
-import arch4 from './images/p01.jpg'
-import arch5 from './images/p02.jpg'
-import arch6 from './images/p03.jpg'
 import { LogoutPage } from './logout';
 const archies = [arch1, arch2, arch3, arch4, arch5, arch6];
 const clips = ['polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)', 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)']

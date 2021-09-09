@@ -117,7 +117,7 @@ export const SignupPage= () => {
   }, []);
   
   return (
-    <div className="contact-page">
+    isLogged?<Redirect push to='/'/>:<div className="contact-page">
         <h1 className="contact-title">Sign up </h1>
         <div>
           <form action="" className="contact-form">
@@ -179,7 +179,9 @@ export const SignupPage= () => {
               
               var srpassword= document.querySelector('#srpassword');
               var susername = document.querySelector("#susername");
-     if (spassword!=srpassword){serrordiv.innerHTML=' sorry passwords didnt match'}else{
+     if (spassword.value!=srpassword.value){serrordiv.innerHTML=' sorry passwords didnt match'
+       
+     }else{
     axios({
       method: "post",
       url: "http://jipastentsail.pythonanywhere.com/auth/register",
