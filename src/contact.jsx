@@ -29,7 +29,7 @@ const Display=(props)=>{
         </div>    
                )
 }
-
+import {Helmet} from 'react-helmet';
 export const Contact=()=>{
   const [visible,setVisible]=React.useState(0)
   const [isSent,setIsSent] =React.useState(false)
@@ -77,7 +77,18 @@ export const Contact=()=>{
   },[visible])
     return (
       <div className="contact-page">
+      <Helmet>
+                  <title>Jipas Tentsail Architectural|Contact</title>
+                  <link rel='icon' href='http://jipastentsail.pythonanywhere.com/media/images/109361632_106981647764696_8765227589641973587_n.jpg'/>
+                  <meta name="description" content="Jipas Tensail is an architectural company that provides Flexible, on-demand talent to help you develop architectural solutions for your business. Got a question for the team at Jipas Tentsail? Please fill out the form below and we will get back to you as soon as possible. Alternatively, contact us by phone or whatsapp." />
+                  <meta name="theme-color" content="red" />
+                  <meta property="og:image" content="http://jipastentsail.pythonanywhere.com/media/images/109361632_106981647764696_8765227589641973587_n.jpg"/>
+                  <meta property="og:description" content="Got a question for the team at Jipas Tentsail? Please fill out the form below and we will get back to you as soon as possible. Alternatively, contact us by phone or whatsapp."/>
+                  <meta property="og:title" content="Jipas Tensail Architectural|Contact "/>
+                </Helmet>
+        <div className='wrap_contact_title'>
         <h1 className="contact-title">Contact us </h1>
+        </div>
         
         <div className='top_welcome'>
         Got a question for the team at Jipas Tentsail? Please fill out the form below and we will get back to you as soon as possible. Alternatively, contact us by phone or whatsapp.
@@ -173,7 +184,7 @@ export const Contact=()=>{
           <div className='c-ds'> 
           <i className='fab fa-whatsapp'></i>
           
-          <a href="https://api.whatsapp.com/send?phone=254736886886">
+          <a href="https://api.whatsapp.com/send?phone=254722786776">
           Send Message 
           </a>
           </div>

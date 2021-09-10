@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, Pagination,Navigation,Scrollbar } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/bundle';
-
+import { Helmet } from 'react-helmet';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
@@ -29,8 +29,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import arch1 from './images/arch2.jpg'
 import arch2 from './images/arch.jpg'
 import arch3 from './images/arch4.jpg'
-import { LogoutPage } from './logout';
-const archies = [arch1, arch2, arch3, arch4, arch5, arch6];
+import { LogoutPage } from './logout';import {HelpPage} from './help'
+const archies = [arch1, arch2, arch3];
 const clips = ['polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)', 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)']
 let y = 1;
 const StateStore = createStore(allReducers)
@@ -111,7 +111,7 @@ gsap.from('.jtp', {
 
   opacity: 0,
 
-  delay: 3,
+  delay: 0,
   duration: 1,
 
 
@@ -163,6 +163,15 @@ gsap.from('.jtp', {
 
   return (
     <div className="main-flex">
+    <Helmet>
+            <title>Jipas Tentsail Architectural|Home</title>
+            <link rel='icon' href='http://jipastentsail.pythonanywhere.com/media/images/109361632_106981647764696_8765227589641973587_n.jpg'/>
+            <meta name="description" content="Jipas Tensail is an architectural company that provides Flexible, on-demand talent to help you develop architectural solutions for your business" />
+            <meta name="theme-color" content="red" />
+            <meta property="og:image" content="http://jipastentsail.pythonanywhere.com/media/images/109361632_106981647764696_8765227589641973587_n.jpg"/>
+            <meta property="og:description" content="Jipas Tensail is an architectural company that provides Flexible, on-demand talent to help you develop architectural solutions for your business"/>
+            <meta property="og:title" content="Jipas Tensail Architectural|Home"/>
+          </Helmet>
       <div className="title_view">
         <div className="show">
           <h2>
@@ -210,7 +219,7 @@ gsap.from('.jtp', {
                         <img className='swp'src={arch2}
                         />
                         
-                                    <p  className='jtp'>Quality and attractive design</p>
+                                    <p  className='jtp'>Combine elegance and functionality with our amazing range of architectural structures with fabric. This semi-permanent garden canopy is ideal for hotels, apartment and office suites and institutions..</p>
                         </div>
                         </SwiperSlide>
                         <SwiperSlide>
@@ -259,7 +268,7 @@ function Icon(props) {
 
 function Footer() {
   return (
-    <footer className='footer'>
+    <div className='footer'>
     <div>
     <ul  className='footer_list'>
     <li className='footer_li'>
@@ -296,7 +305,7 @@ function Footer() {
     </div>
     </div>
    <span> Jipas Tentsail &copy; 2021 |<br/>Designed and developed with <i className='fas fa-heart'> </i>by <a href='https://interstellarcodegit.github.io'>Interstellar Code</a></span>
-    </footer>
+    </div>
 
   )
 
@@ -361,7 +370,7 @@ function Nav() {
             height: '100vh',
 
 
-            background: 'rgba(0,0,0,0.9)',
+            background: 'rgba(0,0,0,0.7)',
             backdropFilter: 'blur(5px)',
             zIndex: 5,
             delay: 0,
@@ -616,6 +625,8 @@ function Main() {
     <Route path='/upload' component={UploadPage}/>
 
     <Route path='/logout' component={LogoutPage}/>
+    
+    <Route path='/help' component={HelpPage}/>
       </Switch>
       <Footer/>
       </div>

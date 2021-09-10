@@ -173,37 +173,6 @@ animation: border 10s infinite alternate;
   }
   font-family: monospace;
 }
-$bgcolor:rgba(9, 3, 27, 0.899);
-.contact-page{
-  background:$bgcolor;
-  height:100vh;
-  
-
-
-}
-.top_display i {
-  margin-right: 5px;
-}
-.contact-title {
-  font-size: 4vw;
-  border-bottom: 1px solid rgb(255, 0, 242);
-  font-weight:200;
-  font-family:ubuntu;
-  text-align: center;
-  //margin-top: 5vh;
-
-
-  background: linear-gradient(45deg, blue, aqua);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-}
-.top_display h3 {
-  background: linear-gradient(45deg, #e09dff, aqua);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  text-align: left;
-
-}
 
 .rand1 {
   position: absolute;

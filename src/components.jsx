@@ -55,17 +55,33 @@ export function TestimonialCard(props) {
 
 }
 export function Comment() {
+  const [isSent,setIsSent] =React.useState(false)
   const authtoken = useSelector(state => state.MyToken);
   const [visible,setVisible]=React.useState(0)
+
+  React.useEffect(()=>{
+    if(visible==1){
+   gsap.to('.pop',{
+     display:'flex',
+
+     duration:1,
+
+
+   })}else{
+     gsap.to('.pop', {
+       display:'none',
+
+       duration: 1,
+
+
+     })
+   }
+
+
+  },[visible])
   return (
       <div className='Comment'>
     
-        <div  className='pop'>
-        <div className='popcheck'>
-        <i className='fas fa-check'></i>
-        <span>Comment posted successfully</span>
-        </div>
-        </div>
     <h2 className='comment_title'> Comments</h2>
     <form className='comment_form'>
     <textarea placeholder='Write your comment here' className='comment_textarea' />
@@ -75,6 +91,9 @@ export function Comment() {
                     fontFamily:'Poppins'
                          }}id='errordiv'></div>
     <button className='post_button' onClick={(e)=>{
+
+              e.preventDefault()
+              setVisible(1)
               e.preventDefault()
               var comment= document.querySelector('.comment_textarea');
               var errordiv = document.querySelector('#errordiv')
@@ -92,6 +111,8 @@ export function Comment() {
       },
     }).then((r) => {
       setVisible(1)
+        setIsSent(true)
+
       setTimeout(() => {
         setVisible(0)
       }, 4000)
