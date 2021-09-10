@@ -293,7 +293,7 @@ function Footer() {
         
     </ul>
     <div className='footer_icons'>
-    <a className='footer_a' href='#'>
+    <a className='footer_a' href='https://m.facebook.com/jipastensail'>
     <i className='fab fa-facebook'> </i>
     </a>
     <a className='footer_a' href='#'>
