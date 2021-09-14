@@ -111,6 +111,7 @@ export const SignupPage= () => {
   const authtoken = useSelector((state) => {
     state.token;
   });
+  const isLogged = useSelector((state) =>state.isLogged);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(changePage("signup"))
