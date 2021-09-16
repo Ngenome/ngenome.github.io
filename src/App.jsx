@@ -316,7 +316,7 @@ function Nav() {
   const [yes, setYes] = useState(0);
 
   const isLogged = useSelector(state => state.isLogged)
-  const currentPage = useSelector(state => state.currentPage)
+  //const currentPage = useSelector(state => state.currentPage)
   // React.useEffect(() => {
 
   //   active = document.querySelector(`.${currentPage}`);

@@ -32,8 +32,8 @@
   margin-right: 2px;
   opacity: 0;
   /*-webkit-text-fill-color: transparent !important;
-  -webkit-background-clip: text !important;
-  font-family: ubuntu; */
+   -webkit-background-clip: text !important;
+   font-family: ubuntu; */
 }
 @media screen and (min-width: 768px) {
   #nav_icon {
@@ -84,20 +84,22 @@
   height: 5vh;
 }
 
-.th2 h2, .th2 {
+.th2 h2,
+.th2 {
   position: relative;
   color: white;
-  font-size: 4vw;
+  font-size: 1.6vw;
 }
 @media screen and (max-width: 768px) {
-  .th2 h2, .th2 {
+  .th2 h2,
+.th2 {
     display: none;
   }
 }
 
 .jt {
   color: white;
-  font-size: 4vw;
+  font-size: 10px;
 }
 @media screen and (max-width: 480px) {
   .jt {
@@ -134,16 +136,15 @@
 
 .nav_anchor {
   text-decoration: none;
-  color: #F4DFFF;
+  color: #f4dfff;
   font-family: ubuntu;
-  font-size: 130%;
+  font-size: 110%;
 }
 @media screen and (max-width: 768px) {
   .nav_anchor {
-    font-size: 3vw;
+    font-size: 2vw;
     position: relative;
     opacity: 0;
-    font-weight: 10;
   }
 }
 
