@@ -143,7 +143,7 @@ export function GalleryContainer(){
     axios({
       
       method:'get',
-      url:'http://jipastentsail.pythonanywhere.com/jipasApi/imagelist',
+      url:'https://jipastentsail.pythonanywhere.com/jipasApi/imagelist',
       headers:{
         'content-type':'application/json',
       }

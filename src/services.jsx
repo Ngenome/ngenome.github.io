@@ -10,7 +10,7 @@ import { Card, TestimonialCard, Comment } from './components'
 import { Swiper, SwiperSlide } from 'swiper/react';
 //import 'swiper/swiper-bundle.css';
 import SwiperCore, { Autoplay } from 'swiper';
-
+const baseUrl= 'https'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/bundle';
@@ -201,7 +201,7 @@ export function ServicePage() {
             
                 axios({
                   method: "POST",
-                  url: "http://jipastentsail.pythonanywhere.com/jipasApi/comments/",
+                  url: "https://jipastentsail.pythonanywhere.com/jipasApi/comments/",
                   headers: {
                     "Content-Type": "application/json",
                     "Authorization":`Token ${authtoken}`
