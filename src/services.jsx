@@ -17,6 +17,7 @@ import 'swiper/css/bundle';
 import 'swiper/css/effect-coverflow';
 import { EffectCoverflow, Pagination } from 'swiper';
 import axios from 'axios'
+import {gsap} from 'gsap'
 //import Tilt  from 'react-vanilla-tilt'
 class Tilt extends React.Component {
   componentDidMount() {
@@ -85,7 +86,7 @@ export function ServicePage() {
   }, [visible])
   React.useEffect(() => {
 
-    dispatch(change('servicepage'))
+    // dispatch(change('servicepage'))
     axios({
 
       method: 'get',
@@ -102,6 +103,7 @@ export function ServicePage() {
       sm(rm)
 
     })
+    
   }, [])
   return (
       <div className='service_flex'>
@@ -156,11 +158,12 @@ export function ServicePage() {
           
               
                m.length===0? <div className='centered_content'><div className='loader'></div></div>:
-              m.map(h=>{
+              m.map((h,i)=>{
             
               return(
             
-              <TestimonialCard
+              <TestimonialCard 
+              key={i}
                           title = {h.firstName}
                           prof='Senior Person at Somewhere'
                           imagelink={h.picture}

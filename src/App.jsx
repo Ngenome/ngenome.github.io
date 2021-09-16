@@ -20,7 +20,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { AboutPage } from './about.jsx'
-import { Contact } from './contact'
+import { Contact, iconUrl } from './contact'
+import {Nav} from './nav'
 import { LoginPage, SignupPage, UploadPage } from './login'
 import { updateToken, changePage } from '../actions/index'
 import { allReducers } from '../reducers/index'
@@ -165,10 +166,10 @@ gsap.from('.jtp', {
     <div className="main-flex">
     <Helmet>
             <title>Jipas Tentsail Architectural|Home</title>
-            <link rel='icon' href='http://jipastentsail.pythonanywhere.com/media/images/109361632_106981647764696_8765227589641973587_n.jpg'/>
+            <link rel='icon' href={iconUrl}/>
             <meta name="description" content="Jipas Tensail is an architectural company that provides Flexible, on-demand talent to help you develop architectural solutions for your business" />
             <meta name="theme-color" content="red" />
-            <meta property="og:image" content="http://jipastentsail.pythonanywhere.com/media/images/109361632_106981647764696_8765227589641973587_n.jpg"/>
+            <meta property="og:image" content={iconUrl}/>
             <meta property="og:description" content="Jipas Tensail is an architectural company that provides Flexible, on-demand talent to help you develop architectural solutions for your business"/>
             <meta property="og:title" content="Jipas Tensail Architectural|Home"/>
           </Helmet>
@@ -259,12 +260,6 @@ function f() {
 
 }
 
-function Icon(props) {
-  return (
-    <i id='nav_icon' className={props.cls}></i>
-
-  )
-}
 
 function Footer() {
   return (
@@ -311,257 +306,6 @@ function Footer() {
 
 }
 
-function Nav() {
-  let active;
-  const [yes, setYes] = useState(0);
-
-  const isLogged = useSelector(state => state.isLogged)
-  //const currentPage = useSelector(state => state.currentPage)
-  // React.useEffect(() => {
-
-  //   active = document.querySelector(`.${currentPage}`);
-  //   alert(currentPage)
-  //   var anchor_list = document.querySelectorAll('.nav_anchor');
-  //   anchor_list.forEach(e => {
-  //     e.style.color = 'white'
-      
-  //   })
-  //   active.style.color = 'red'
-
-  // }, [yes])"
-  React.useEffect(() => {
-    var bg = document.querySelector('.burger')
-     var nv = document.querySelector('.nav');
-    var nav_list = document.querySelector('.nav_list');
-    var bars = document.querySelector('.bars');
-
-
-    var an = document.querySelectorAll('.li');
-
-    an.forEach(a => {
-      a.addEventListener('click', () => {
-        if (yes ===0) {
-          
-          setYes(1)
-        }
-        else {
-          setYes(0)
-  
-        }
-
-
-        
-
-      })
-    })
-    //active.classList.add('.active')
-
-    if (window.innerWidth <= 768) {
-      bg.addEventListener('click', () => {
-
-        if (mu == 0) {
-          bars.classList.remove('fa-bars')
-          bars.classList.add('fa-times')
-          gsap.to('.nav', {
-            width: '60vw',
-            opacity: 1,
-            display: 'flex',
-
-            height: '100vh',
-
-
-            background: 'rgba(0,0,0,0.7)',
-            backdropFilter: 'blur(5px)',
-            zIndex: 5,
-            delay: 0,
-            duration: 1,
-
-          });
-
-
-          gsap.to('.li', {
-            duration: 0.5,
-            x: 15,
-            opacity: 1,
-            stagger: 0.2,
-            delay: 2,
-            display: 'block',
-
-          });
-          gsap.to('.nav_anchor', {
-            duration: 0.5,
-            opacity: 1,
-            stagger: 0.5,
-            delay: 3,
-          });
-          gsap.to('#nav_icon', {
-            duration: 1,
-
-            opacity: 1,
-            stagger: .2,
-            delay: 2,
-          });
-          mu = 1;
-        }
-        else if (mu == 1) {
-          bars.classList.remove('fa-times')
-          bars.classList.add('fa-bars')
-          gsap.to('.nav', {
-            width: '100vw',
-            opacity: 0,
-            zIndex: -10,
-            display: 'none',
-            height: '5vh',
-
-
-            background: 'rgba(0,0,0,0.9)',
-            backdropFilter: 'blur(5px)',
-
-            delay: 2,
-            duration: 2,
-          });
-
-
-          gsap.to('.li', {
-
-            duration: 0.5,
-            x: -15,
-            opacity: 0,
-            stagger: 0.2,
-            delay: 0,
-            display: 'none',
-
-          });
-          gsap.to('.nav_anchor', {
-            duration: 0.5,
-
-            opacity: 0,
-            stagger: 0.2,
-            delay: 0,
-          });
-          mu = 0;
-        }
-
-
-      });
-      an.forEach(a => {
-        a.addEventListener('click', () => {
-
-          bars.classList.add('fa-bars')
-          bars.classList.remove('fa-times')
-          gsap.to('.nav', {
-            width: '100vw',
-            opacity: 0,
-            zIndex: -10,
-            display: 'none',
-            height: '5vh',
-
-
-            background: 'rgba(0,0,0,0.9)',
-            backdropFilter: 'blur(5px)',
-
-            delay: 2,
-            duration: 2,
-          });
-
-
-          gsap.to('.li', {
-
-            duration: 0.5,
-            x: -15,
-            opacity: 0,
-            stagger: 0.2,
-            delay: 0,
-            display: 'none',
-
-          });
-          gsap.to('.nav_anchor', {
-            duration: 0.5,
-
-            opacity: 0,
-            stagger: 0.2,
-            delay: 0,
-          });
-          mu = 0;
-
-
-        })
-      })
-    }
-
-  }, [])
-
-  return (
-    <div>
-  
-          <h2 className='jt'>JT</h2>
-          <span className='burger'><i className='bars fas fa-bars'></i></span>
-        
-          
-    <nav className='nav'>
- <div className='th2'>
-          <h2 >JT</h2>
-        
-          </div>
-      <div className='nav-wrap'>
-    <ul className='nav_list'>
-    <Link className='li' to='/'>
-    <li>  <Icon cls='fas fa-home'/>
-    <a className='nav_anchor home'>Home</a>
-     </li>
-     </Link>
-     <Link  className='li' to='/services'>
-      <li>
-      <Icon cls='fas fa-wallet'/>
-     <a className='nav_anchor servicepage'>Services</a>
-       </li>
-       </Link>
-       <Link  className='li' to='/about'>
-        <li>
-          <Icon cls='fas fa-question'/>
-       <a className='nav_anchor about' >About</a>
-      </li>
-      </Link>
-      <Link  className='li' to='/contact'>
-     <li>
-       <Icon cls='fas fa-phone'/>
-      <a className='nav_anchor contact'>Contact</a>
-       </li>
-       </Link>
-       
-      <Link  className='li' to='/gallery'>
-     <li>
-       <Icon cls='fas fa-image'/>
-      <a className='nav_anchor gallery'>Gallery</a>
-       </li>
-       </Link>
-       {
-       isLogged==false?
-      <Link  className='li' to='/login'>
-     <li>
-       <Icon cls='fas fa-sign-in-alt'/>
-      <a className='nav_anchor login'>Login</a>
-       </li>
-       </Link>:<Link  className='li' to='/logout'>
-            <li>
-              <Icon cls='fas fa-sign-out-alt'/>
-             <a className='nav_anchor logoutanchor'>Logout</a>
-              </li>
-              </Link>
-       }
-       
-     { isLogged!=true?<Link  className='li' to='/signup'>
-     <li>
-       <Icon cls='fas fa-user-plus'/>
-      <a className='nav_anchor signup'>Register</a>
-       </li>
-       </Link>:''}
-    </ul>
-    </div>
-    </nav></div>
-
-  )
-}
 
 function Intro() {
   return (

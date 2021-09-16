@@ -29,6 +29,8 @@ const Display=(props)=>{
         </div>    
                )
 }
+ export  var iconUrl =
+    "https://jipastentsail.pythonanywhere.com/media/images/109361632_106981647764696_8765227589641973587_n.jpg";
 import {Helmet} from 'react-helmet';
 export const Contact=()=>{
   const [visible,setVisible]=React.useState(0)
@@ -46,7 +48,7 @@ export const Contact=()=>{
   },[])
   React.useEffect(() => {
     gsap.from('.contact-title', {
-      y:-3,
+      y:0,
       
       duration: 2,
       delay:3,
@@ -75,14 +77,16 @@ export const Contact=()=>{
      
    
   },[visible])
+                
+
     return (
       <div className="contact-page">
       <Helmet>
                   <title>Jipas Tentsail Architectural|Contact</title>
-                  <link rel='icon' href='http://jipastentsail.pythonanywhere.com/media/images/109361632_106981647764696_8765227589641973587_n.jpg'/>
+                  <link rel='icon' href={iconUrl}/>
                   <meta name="description" content="Jipas Tensail is an architectural company that provides Flexible, on-demand talent to help you develop architectural solutions for your business. Got a question for the team at Jipas Tentsail? Please fill out the form below and we will get back to you as soon as possible. Alternatively, contact us by phone or whatsapp." />
                   <meta name="theme-color" content="red" />
-                  <meta property="og:image" content="http://jipastentsail.pythonanywhere.com/media/images/109361632_106981647764696_8765227589641973587_n.jpg"/>
+                  <meta property="og:image" content={iconUrl}/>
                   <meta property="og:description" content="Got a question for the team at Jipas Tentsail? Please fill out the form below and we will get back to you as soon as possible. Alternatively, contact us by phone or whatsapp."/>
                   <meta property="og:title" content="Jipas Tensail Architectural|Contact "/>
                 </Helmet>
