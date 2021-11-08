@@ -15,7 +15,7 @@
     display: none;
   }
   height: 5vh;
-  background: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(45deg, rgb(24, 16, 0), rgb(8, 8, 78));
   backdrop-filter: blur(10px);
 }
 #nav_icon {
@@ -47,9 +47,9 @@
 
   @media screen and (max-width: 768px) {
     margin-bottom: 10px;
-      display:flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
 }
 .li:hover {
@@ -71,7 +71,7 @@
   position: relative;
 
   color: white;
-  font-size:1.6vw;
+  font-size: 1.6vw;
 
   @media screen and(max-width:$tablet) {
     display: none;
@@ -109,10 +109,15 @@
 }
 .nav_anchor {
   text-decoration: none;
-  color: #f4dfff;
-  font-family: ubuntu;
+  background: $gradientallanchor;
+  background-size: 200%;
+  font-weight: 600;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-family: Abel, sans-serif;
 
   font-size: 110%;
+  transition: 1s;
   @media screen and (max-width: 768px) {
     font-size: 4vw;
     position: relative;

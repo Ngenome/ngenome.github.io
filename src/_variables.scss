@@ -1,7 +1,11 @@
-$color:rgba(2,3,24,0.8990);
- $desktop :1200px;
- $phone:480px;
-$tablet:768px;
-$laptop:1024px;
-$backgroundcolor:rgba(6, 3, 34, 0.8);
-$inputborder:rgb(73, 121, 121);
+$color: rgba(2, 3, 24, 0.899);
+$desktop: 1200px;
+$phone: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+$backgroundcolor: rgba(6, 3, 34, 0.8);
+$inputborder: rgb(73, 121, 121);
+$gradientall: linear-gradient(45deg, orange, rgb(153, 0, 255));
+$nav_bg: linear-gradient(45deg, rgb(24, 16, 0), rgb(8, 8, 78));
+$gradientallLabel: linear-gradient(45deg, rgb(174, 0, 255), rgb(255, 166, 0));
+$gradientallanchor: linear-gradient(45deg, orange, rgb(119, 0, 255));
